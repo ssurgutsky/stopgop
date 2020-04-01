@@ -1,0 +1,192 @@
+[INTRO]Симулятор общения с гопником.[BGNDIMAGE Intro.jpg]{this.lang='ru';''}
+	НАЧАТЬ ИГРУ / START GAME
+		[mark_1lmn36h9rk20b158p6os][BGNDVIDEO Intro.flv][ANSWERTIME 5.7][TIMEEXPIRED GAME_SAVEPOINT][AMBIENT AmbientStreet]Где-то в Сибири...
+			Пропустить заставку.
+				[GAME_SAVEPOINT,language_ru][AMBIENT AmbientStreet]Эээ... братишка, постой![VIDEO GopSpeechSimpleLoop][AUDIO {this.lang}/Hey_brother_stop][BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face]
+					Чего тебе?
+						[mark_z71rq861ty82c6v63397]А ты чо такой грубый?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/Why_are_you_so_rude][VIDEO GopSpeechSimpleLoop]
+							[Не_люблю_когда_отвлекают]Просто не люблю, когда отвлекают.
+								[mark_3y12l71oh3z3n88zv91j]Cлух, тут это типа такое дело...[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/I_have_a_deal_for_you][VIDEO GopSpeechSimpleLoop]
+									[Какое_дело]Какое дело?
+										[EPISODE1, Такое_дело]Сёдня старший братишка с зоны откинулся, бухнуть хочет, подкинь денег реальному пацану.[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/give_money_to_drink][VIDEO GopSpeechSimpleLoop]
+											Ну... 5 рублей могу дать.[VIDEO GopTakes5rub]
+												[mark_lvmkf8oz0nor1vd6z0vq]Ты чо, не вкурил? Он за мокруху 7 зим на зоне насухую чалился, а ты только пятак даёшь?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/brother_was_prisoner_no_drinking][VIDEO GopSpeechLoadingLoop]
+													Извини, больше не могу.
+														[mark_b5a00286j1e37bjtb46z]Тогда купи перст за 3 монеты, братуха с зоны подогнал. Вообще он 5 монет стоит, но чиста деньги срочняк нужны, уступаю...[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/buy_brothers_perst][VIDEO GopSpeechNibblesSunflowerSeeds]
+															Да кто его за 5 монет возьмёт то?
+																[mark_iawl37c7wo6858i5a69h]Да любой пацан возьмёт! Мой кореш возьмёт, но у него с баблом щас напряг. Потом ему за пятёрку стопудово скинешь.[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/any_pacan_buy_perst][VIDEO GopSpeechLoadingLoop]
+																	Я твоего кореша даже не знаю...
+																		[mark_18p50b4q7h9r89sx89af]Ну так пошли, побазаришь с ним![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/go_and_talk_to_koresh][VIDEO GopSpeechSimpleLoop]
+																			[Спасибо_предложи_другому]Нет, спасибо, предложи кому-нибудь другому!
+																				[Ты_чо_мне_не_веришь]Ты чо, мне не веришь? Я тебе выгодное дело предлагаю, ёпта![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/offer_rich_buisnes][VIDEO GopSpeechLoadingLoop]
+																					Да нет у меня таких денег...
+																						[mark_r975yyz21ic8kh56hpvo]Так займи у своих пацанюров![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/ask_friends_for_money][VIDEO GopSpeechSimpleLoop]
+																							У них у самих денег нет.
+																								[mark_l2t3nm3dz10vhc2i61hh]Чо, босяки? У нормальных пацанов всегда 3 монеты найдётся. Кароче, бери в кредит. Сколь лаве с собой есть?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/credit_offer][VIDEO GopSpeechNibblesSunflowerSeeds]
+																									Нисколько.
+																										[А_если_поискать]Да не гони! А если поискать?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/if_i_search_money][VIDEO GopSpeechLoadingLoop]
+																											Ну попробуй...
+																												[EPISODE2,С_какого_района]Слух, ты ваще с какого района?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/what_region][VIDEO GopSpeechLoadingLoop]
+																													С этого.
+																														[mark_h675q23tj6y17645ggdj]Кого из пацанов знаешь?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/whom_knew][VIDEO GopSpeechLoadingLoop]
+																															Чекрыжа знаю.
+																																[mark_l9urvbw0h674s3msn7py]Чекрыжа? Этого лоха? Гыгыгы! А он то тебя знает?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/Checkryzh_knows_you][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																	Да, мы с ним в одном классе учились.
+																																		[mark_4ikonaqyl0xfz5wb6119]Ладно, иди куда шёл! Чекрыжу ничего не говори.[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/Nothing_say_Checkryzh][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																			Что не говорить?
+																																				[mark_82er82a108grf20y6b3r]Ваще ничо не говори.[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/nothing_say][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																					Не говорить про то, как ты его лохом назвал?
+																																						[mark_68oltihp4c2eks6a2nor]Ты чо не всосал? Просто молчи и всё![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/simply_no_talking][VIDEO GopSpeechLoadingLoop]
+																																							Давай 100 руб, тогда не скажу.
+																																								[EPISODE3]Ты чо, обурела, ветошь?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/vetosh][VIDEO GopSpeechLoadingLoop]
+																																									Ну как хочешь, Чекрыжу больше должен будешь...
+																																										[Mark_Final10]Эээ, братуха, постой! Ладно, вот сотка... и молчи![AUDIO {this.lang}/take_100_and_keep_silent][VIDEO GopGives100rub]
+																																											
+																																												[mark_a64n324y0635c1ea68a8]Главный финал! Ты только что протряс гопа![BGNDVIDEO Titles][MUSIC none]
+																																													Достать лопатник / Donate.
+																																														[mark_llm2934k1by4d38718ll][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта/Donate next project&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
+																																									[А_что_ты_мне_сделаешь]А что ты мне сделаешь?
+																																										[mark_olzk5yoo5q475wd7leb0]Щас на перо насажу, кровью кудахтать будешь, гнида![ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/cut_you][VIDEO GopTreatenWithKnife][BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes]
+																																											[GOTO Ладно_я_пошутил]
+																																											Ну поробуй, рискни...
+																																												[Mark_Final8][FINAL Отрицательный финал... Гоп пырнул тебя ножом. Не рискуй так в реальной жизни.][VIDEO GopThrustKnife][AUDIO knife_blow]
+																																							[Ладно_я_пошутил]Ладно, ладно, я пошутил!
+																																								[Mark_Final6][FINAL Нейтральный финал. Гоп потерял к вам интерес и ушел, повезло...][VIDEO GopLostInterest]
+																																					[GOTO Ну_бывай]
+																																			[Ну_бывай]Ну бывай....
+																																				[mark_3f0ev9l7p6hcpo065502][GOTO Mark_Final7]
+																																	Да, знает.
+																																		[mark_bc373ef1ne32513goqz4]Я ведь щас отзвонюсь, проверю, на бабки попадёшь, если гонишь![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/phone_check][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																			Звони!
+																																				[mark_r18v798u3x71p4b7b158]"Алло, Чекрыж, здарова! Тут один мутный кент бакланит, что тебя знает! Такой типа ботаник..."[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/Hallo_Checkryzh][VIDEO GopPhonesCheckryzh]
+																																					Дай я сам с ним поговорю!
+																																						[Call_Checkryzh]Слух, кароче, шкандыбай отсюда![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/go_away][VIDEO GopSpeechSimpleLoop]
+																																							[GOTO Ну_бывай]
+																																							Что сказал Чекрыж?
+																																								[mark_t13q4r4qntxuo8w4d54c]Сгинь отсюда я сказал![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/hide_away][VIDEO GopSpeechLoadingLoop]
+																																									[GOTO Ну_бывай]
+																																									Он сказал, что знает меня?
+																																										[mark_t28dpgu65ro6m13s8165]Ты запарил, никому я не звонил! Вали отсюда, пока люлей не отхватил![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/no_phone_to_Checkryzh][VIDEO GopSpeechLoadingLoop]
+																																											[GOTO Ну_бывай]
+																																											Чекрыж правда меня знает!
+																																												[Mark_Final1][FINAL Отрицательный финал... Гоп стукнул тебя в тыкву.][VIDEO GopPunchesToFace][AUDIO {this.lang}/Take_it_fool][SOUNDFX boom2]
+																																					[GOTO Видел_но_не_общались]
+																																			[Видел_но_не_общались]Если честно, то он меня видел, но мы не общались...
+																																				[mark_1z5rg9su45fc70tp5303]А чо мутишь, что знаешь? Гони сотку за гнилой базар![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/lie_you_know_Checkryzh][VIDEO GopSpeechLoadingLoop]
+																																					[Вот_сотка]Хорошо, вот тебе сотка, извини, я пошёл![VIDEO GopTakes2x50rub]
+																																						[mark_b862mq8bz2l4fe5jbmau]Куда пошёл? Стоять![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/where_are_you_stop][VIDEO GopSpeechLoadingLoop]
+																																							Я же дал тебе сотку, мне идти надо, я опаздываю!
+																																								[Дай_мобилу_позвонить]Дай мобилу позвонить![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/give_me_mobila][VIDEO GopSpeechSimpleLoop]
+																																									Нет мобилы, дома оставил!
+																																										[mark_36yoq12cltnjvy6xo175]А в кармане чо лежит?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/what_in_packet][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																											Ничего, пусто!
+																																												[mark_297066v34b6sw3m40q1k]Покажи![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/show_what_in_packet][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																													Нет, не покажу!
+																																														[mark_2v2fm65y8604426dr73g][GOTO Mark_Final1]
+																																													[GOTO Баланс_нулевой]
+																																													Ну вот, смотри...
+																																														[Mark_Final4][FINAL Положительный финал! Ты отвлек внимание гопа и стукнул его в тыкву!][VIDEO GopBePunched][SOUNDFX boom]
+																																											[GOTO Баланс_нулевой]
+																																									[Баланс_нулевой]У меня баланс нулевой...
+																																										[mark_djw0jy0d7svpj1479759]Давай сюда, я свою симку вставлю.[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/give_mobila_my_SIM][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																											Ладно, только звони из моих рук.
+																																												[mark_xiz04tlzuencd3xmi4ab]Чо ты ссышь то? Жми 8... 9... ээээ.... забыл... кароче, дай сюда, я сам наберу![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/give_me_i_phone_myself][VIDEO GopSpeechSimpleLoop]
+																																													[GOTO Не_дам_мобилу]
+																																													Ладно, держи, только звони побыстрее![VIDEO GopTakesMobile]
+																																														[mark_8zq9j4n934iw2k1alas0][GOTO Mark_Final1]
+																																													Ладно, только сначала говно с рукава вытри.
+																																														[Mark_Final2][FINAL Положительный финал! Ты только  что обманул гопа!][VIDEO GopLooksAside][AUDIO {this.lang}/Where_is_shit]
+																																											[Не_дам_мобилу]Нет, не дам мобилу!
+																																												[mark_6900tg50no1a5fh01yi3][GOTO Mark_Final1]
+																																							Что ещё?
+																																								[mark_0y4t863h89g9h2qr45nb][GOTO Дай_мобилу_позвонить]
+																																					Я имел ввиду он знает меня чисто визуально...
+																																						[mark_08f0o47tr873qycyvv69]Слух, ты лошара проотвечался, бабло всё быстро выгреб сюда![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/money_give_to_me_faster][VIDEO GopTreatenWithKnife]
+																																							[GOTO Вот_сотка]
+																																							У меня нет денег...
+																																								[mark_k71pwkmox909b4m45xg9][GOTO Mark_Final1]
+																															Васю.
+																																[mark_4718a2415ehky88fx297][FINAL Отрицательный финал... Ну что, получил? Для гопов Вася = Лох!][VIDEO GopPunchesToFace][AUDIO {this.lang}/Take_it_fool][SOUNDFX boom2]
+																															[GOTO У_меня_друг_спортсмен]
+																													С нормального.
+																														[mark_255j2qj672e195w9ibbc]А тут чо шаришься?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/what_you_do_here][VIDEO GopSpeechNibblesSunflowerSeeds]
+																															Дела у меня тут.
+																																[mark_708jtv7g06qj63rkf85o]Чо за дела?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/what_buisness][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																	Бабушку больную навестить иду.
+																																		[mark_31gsad7a9qqajz06gr7j]Пирожки несёшь? Гыгыгы... Курить чо есть?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/carry_patties][VIDEO GopSpeechNibblesSunflowerSeeds]
+																																			[GOTO Не_курю]
+																																			[GOTO Угощайся_сигой]
+																																	[GOTO А_тебе_не_все_ли_равно]
+																															[А_тебе_не_все_ли_равно]А тебе не всё ли равно?
+																																[mark_jw39pa2id8x1ws4o806o][GOTO Сиги_есть]
+																											Я на мели.
+																												[Сиги_есть]Сиги есть?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/have_smoking][VIDEO GopSpeechNibblesSunflowerSeeds]
+																													[Не_курю]Нет, не курю.
+																														[mark_4522lz1m0ny4zghfweln]Чо, спортсмен? Не похож вроде.[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/are_you_sportsmen][VIDEO GopSpeechSimpleLoop]
+																															Вобще я в тренажёрку хожу, качаюсь...
+																																[mark_2pqo2f9sq6x4t71441ef][GOTO Дай_мобилу_позвонить]
+																															[У_меня_друг_спортсмен]У меня друг спортсмен.
+																																[Чо_испугать_меня_хочешь]И чо типа ты меня испугать хочешь? Давай вали отсюда![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/do_you_scare_me][VIDEO GopSpeechLoadingLoop]
+																																	Сам вали отсюда!
+																																		[mark_27rs45tbm86va4e441hm][GOTO Mark_Final6]
+																																	Вон он идет! "Дэн, тут с тобой познакомиться хотят!"
+																																		[mark_78axl23vrzt6zbwyt58i][FINAL Положительный финал! Гоп в ужасе свалил от тебя!][AUDIO {this.lang}/No_no_no][VIDEO GopIsFrightened]
+																																	[GOTO А_что_ты_мне_сделаешь]
+																													[Угощайся_сигой]Да, угощайся.[VIDEO GopTakesCigarette]
+																														[mark_qgn23x158kbkb7p8l302][GOTO Дай_мобилу_позвонить]
+																													Нет, нету... Сам с утра стреляю...
+																														[mark_0rw23ne7899688w816nz][GOTO Дай_мобилу_позвонить]
+																											Не надо искать, 2 рубля устроит?[VIDEO GopTakes5rub]
+																												[mark_xyf3o6sjw883s53540w1]Ты чо издеваешься?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/are_you_jeer_me][VIDEO GopSpeechLoadingLoop]
+																													Нет, серъезно.
+																														[mark_a67o9k9377lw5b029e69][GOTO Сиги_есть]
+																													У меня честно, больше нет...
+																														[mark_blmjkr58e1xyipxl7vb3][GOTO Mark_Final1]
+																													Вот ещё 2 рубля в левом кармане, последние... смотри!
+																														[mark_s438v294xzuxehm1uic8][GOTO Mark_Final4]
+																									У меня друг - боксер.
+																										[mark_548oorems4xxte85zl5p][GOTO Чо_испугать_меня_хочешь]
+																							[Пошли_друг_займет]Эээ... ну пошли, сходим к другу, он займёт.
+																								[mark_1hx4os6t7dr31ym66ak1]Давай сам сгоняй. Слух, если назвиздел, найду - хуже будет![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/go_and_take_money_yourself][VIDEO GopSpeechNibblesSunflowerSeeds]
+																									Пошли вместе, тут идти 5 минут.
+																										[mark_fpif98adq59kx391vi8p]Оки, щас тока кореша кликну![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/call_koresh][VIDEO GopSpeechNibblesSunflowerSeeds]
+																											Если позовёшь кореша, вам деньги поделить придётся.
+																												[EPISODE4,Лады_погнали]Лады, погнали![AUDIO {this.lang}/ok_go][VIDEO GopSaysOkGo]
+																													
+																														[mark_nbjp57xev1rca0mu5h8v][VIDEO GopWasBeaten][AUDIO gop_was_beaten]
+																															
+																																[Mark_Final9][FINAL Положительный финал! Твой друг замочил гопа!]
+																											А что ты один боишься?
+																												[mark_ow393tgwxy534em97g4i]А чо за друг? Кто по жизни такой?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/what_kind_of_friend][VIDEO GopSpeechNibblesSunflowerSeeds]
+																													[GOTO У_меня_друг_спортсмен]
+																													Обычный студент, ему вчера родители денег прислали.
+																														[mark_nui318tk18wdw905g3f7][GOTO Лады_погнали]
+																									Ладно, сейчас схожу.
+																										[Mark_Final7][FINAL Нейтральный финал. Похоже в этот раз ты избавился от гопа...][VIDEO GopGoneLoop]
+																					[GOTO Пошли_друг_займет]
+																			Ну пошли.
+																				[EPISODE5][VIDEO GopsFriendPanchesToFace][AUDIO 8sec_boom]
+																					
+																						[Mark_Final5][FINAL Отрицательный финал. Кореш гопа стукнул тебя в тыкву.]
+																	Да это фуфел какой то...
+																		[mark_m17w7r8si15ac0ibov3p][GOTO Ты_чо_мне_не_веришь]
+															[GOTO Нет_денег]
+															[GOTO Спасибо_предложи_другому]
+													[GOTO Нет_денег]
+											[Нет_денег]Нет денег.
+												[mark_5jo3t458n5muosi0z9q3][GOTO А_если_поискать]
+									[GOTO Отвали_от_меня]
+							[GOTO Что_тебе_надо]
+					Извини, я тороплюсь!
+						[mark_74j3gjgn8wa020993d12]Да ты не спеши, у меня к тебе дело есть...[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/dont_hurry_i_have_a_deal_for_you][VIDEO GopSpeechSimpleLoop]
+							[GOTO Какое_дело]
+							Я правда опаздываю!
+								[mark_06z3r7881c737x75f618]Тебе чо взападло выслушать нормального пацана?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/are_you_har_to_hear_normal_boy][VIDEO GopSpeechLoadingLoop]
+									Ну говори, только быстрее!
+										[mark_4d76953295zhkl6i3j69][GOTO Такое_дело]
+									[Отвали_от_меня]Отвали от меня!
+										[mark_ls510hg70z5u9ad1x628]Слух, а ты чо такой дерзкий?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/why_are_you_impudent][VIDEO GopSpeechSimpleLoop]
+											[GOTO Не_люблю_когда_отвлекают]
+											[Что_тебе_надо]Что тебе от меня надо?
+												[mark_1ru1811u41591n62l6pd][GOTO С_какого_района]
+						[gop_punchs_to_face][VIDEO GopPunchesToFace][AUDIO {this.lang}/Take_it_fool][SOUNDFX boom2][FINAL Время истекло...]

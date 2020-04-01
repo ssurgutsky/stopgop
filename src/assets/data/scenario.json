@@ -91,8 +91,20 @@
                                                                                                                                                                                     {
                                                                                                                                                                                       "node": [
                                                                                                                                                                                         {
+                                                                                                                                                                                          "node": [
+                                                                                                                                                                                            {
+                                                                                                                                                                                              "node": [
+                                                                                                                                                                                                {
+                                                                                                                                                                                                  "_mark": "mark_llm2934k1by4d38718ll",
+                                                                                                                                                                                                  "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта/Donate next project&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
+                                                                                                                                                                                                }
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              "_mark": "",
+                                                                                                                                                                                              "_content": "[LABEL Достать лопатник / Donate.]"
+                                                                                                                                                                                            }
+                                                                                                                                                                                          ],
                                                                                                                                                                                           "_mark": "mark_a64n324y0635c1ea68a8",
-                                                                                                                                                                                          "_content": "[LABEL ][FINAL Главный финал! Ты только что протряс гопа!][VIDEO Titles][MUSIC none]"
+                                                                                                                                                                                          "_content": "[LABEL Главный финал! Ты только что протряс гопа!][BGNDVIDEO Titles][MUSIC none]"
                                                                                                                                                                                         }
                                                                                                                                                                                       ],
                                                                                                                                                                                       "_mark": "",
@@ -1017,16 +1029,6 @@
                       ],
                       "_mark": "",
                       "_content": "[LABEL Пропустить заставку.]"
-                    },
-                    {
-                      "node": [
-                        {
-                          "_mark": "mark_llm2934k1by4d38718ll",
-                          "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта/Donate next project&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
-                        }
-                      ],
-                      "_mark": "",
-                      "_content": "[LABEL Достать лопатник.]"
                     }
                   ],
                   "_mark": "mark_1lmn36h9rk20b158p6os",
