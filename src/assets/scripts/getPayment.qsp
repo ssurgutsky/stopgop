@@ -3,6 +3,41 @@ console.log('store', this.store);
 this.payment_pending = true;
 this.payment_success = false;
 
-setTimeout(() => {this.payment_pending = false; this.payment_success = true;}, 10000)
+this.store.order("com.krigames.sg.coin")
+    .then((p) => {
+        console.log("store.order.then::", p);
+        this.store.once("com.krigames.sg.coin")
+            .approved((order) => {
+                this.payment_pending = false;
+                this.payment_success = true;
+                order.finish();
+                this.store.refresh();
+                
+                console.log("store.then.approved::", order);
+            })
+            .cancelled((order) => {
+                this.payment_pending = false;
+                this.payment_success = false;
+                this.store.refresh();
+
+                console.log("store.then.cancelled::", order);
+            })
+            .error((e) => {
+                this.payment_pending = false;
+                this.payment_success = false;
+                this.store.refresh();
+
+                console.log("store.then.error::" + e.code + ": " + e.message);
+            });
+    })
+    .error((e) => {
+        this.payment_pending = false;
+        this.payment_success = false;
+        this.store.refresh();
+
+        console.log("store.order.error:: ERROR " + e.code + ": " + e.message);
+    });
+
+// setTimeout(() => {this.payment_pending = false; this.payment_success = true;}, 10000)
 
 '';
