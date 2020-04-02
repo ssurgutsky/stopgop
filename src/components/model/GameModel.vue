@@ -82,7 +82,7 @@ export default {
       }
 
       window.store.register({
-        id: 'com.kri_games.sg5.coin',
+        id: 'com.krigames.sg.coin',
         alias: 'coin',
         type: window.store.CONSUMABLE
       })

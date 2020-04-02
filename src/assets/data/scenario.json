@@ -91,18 +91,6 @@
                                                                                                                                                                                     {
                                                                                                                                                                                       "node": [
                                                                                                                                                                                         {
-                                                                                                                                                                                          "node": [
-                                                                                                                                                                                            {
-                                                                                                                                                                                              "node": [
-                                                                                                                                                                                                {
-                                                                                                                                                                                                  "_mark": "mark_llm2934k1by4d38718ll",
-                                                                                                                                                                                                  "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта/Donate next project&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
-                                                                                                                                                                                                }
-                                                                                                                                                                                              ],
-                                                                                                                                                                                              "_mark": "",
-                                                                                                                                                                                              "_content": "[LABEL Достать лопатник / Donate.]"
-                                                                                                                                                                                            }
-                                                                                                                                                                                          ],
                                                                                                                                                                                           "_mark": "mark_a64n324y0635c1ea68a8",
                                                                                                                                                                                           "_content": "[LABEL Главный финал! Ты только что протряс гопа!][BGNDVIDEO Titles][MUSIC none]"
                                                                                                                                                                                         }
@@ -1037,10 +1025,72 @@
               ],
               "_mark": "",
               "_content": "[LABEL НАЧАТЬ ИГРУ / START GAME]"
+            },
+            {
+              "node": [
+                {
+                  "node": [
+                    {
+                      "node": [
+                        {
+                          "node": [
+                            {
+                              "node": [
+                                {
+                                  "node": [
+                                    {
+                                      "node": [
+                                        {
+                                          "node": [
+                                            {
+                                              "_mark": "",
+                                              "_content": "[LABEL ][GOTO donate]"
+                                            }
+                                          ],
+                                          "_mark": "payment_success",
+                                          "_content": "[LABEL Благодарочка!][VIDEO GopLaughing][AUDIO silent_2.13][BGNDVIDEO GopHappyLoop]"
+                                        },
+                                        {
+                                          "node": [
+                                            {
+                                              "_mark": "",
+                                              "_content": "[LABEL ][GOTO donate]"
+                                            }
+                                          ],
+                                          "_mark": "payment_fail",
+                                          "_content": "[LABEL Чо та не так, браток!][VIDEO GopSpeechLoadingLoop][AUDIO silent_2.13][BGNDVIDEO GopStandsBouncing]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL ]"
+                                    }
+                                  ],
+                                  "_mark": "mark_y9ehy9jx40feb58j815p",
+                                  "_content": "[LABEL {script checkPayment}]"
+                                }
+                              ],
+                              "_mark": "",
+                              "_content": "[LABEL ]"
+                            }
+                          ],
+                          "_mark": "wait",
+                          "_content": "[LABEL ...][VIDEO GopStandsBouncing][AUDIO silent_5]"
+                        }
+                      ],
+                      "_mark": "",
+                      "_content": "[LABEL ]"
+                    }
+                  ],
+                  "_mark": "mark_ht148aj862wm21q30ogd",
+                  "_content": "[LABEL {script getPayment}]"
+                }
+              ],
+              "_mark": "donate",
+              "_content": "[LABEL Достать лопатник.]"
             }
           ],
           "_mark": "INTRO",
-          "_content": "[LABEL Симулятор общения с гопником.{this.lang='ru';''}][BGNDIMAGE Intro.jpg]"
+          "_content": "[LABEL Симулятор общения с гопником.{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg]"
         }
       ]
     }

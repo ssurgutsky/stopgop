@@ -3,7 +3,7 @@ https://itnext.io/make-hybrid-platform-cordova-vue-webpack-2fb7031c4f9b
 
 Либо
 
-install -i cordova
+npm install -i cordova
 cordova create sg5 com.kri_games.sg5 Stop Gop 5
 
 cordova platform add android

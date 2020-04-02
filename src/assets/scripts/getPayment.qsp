@@ -1,0 +1,8 @@
+console.log('store', this.store);
+
+this.payment_pending = true;
+this.payment_success = false;
+
+setTimeout(() => {this.payment_pending = false; this.payment_success = true;}, 10000)
+
+'';
