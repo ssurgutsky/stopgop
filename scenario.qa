@@ -26,9 +26,9 @@
 																									Нисколько.
 																										[А_если_поискать]Да не гони! А если поискать?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/if_i_search_money][VIDEO GopSpeechLoadingLoop]
 																											Ну попробуй...
-																												[EPISODE2,С_какого_района]Слух, ты ваще с какого района?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/what_region][VIDEO GopSpeechLoadingLoop]
+																												[EPISODE2,С_какого_района,what_district]Слух, ты ваще с какого района?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/what_region][VIDEO GopSpeechLoadingLoop]
 																													С этого.
-																														[mark_h675q23tj6y17645ggdj]Кого из пацанов знаешь?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/whom_knew][VIDEO GopSpeechLoadingLoop]
+																														[whom_do_you_know]Кого из пацанов знаешь?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/whom_knew][VIDEO GopSpeechLoadingLoop]
 																															Чекрыжа знаю.
 																																[mark_l9urvbw0h674s3msn7py]Чекрыжа? Этого лоха? Гыгыгы! А он то тебя знает?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/Checkryzh_knows_you][VIDEO GopSpeechNibblesSunflowerSeeds]
 																																	Да, мы с ним в одном классе учились.
@@ -75,7 +75,7 @@
 																																					[Вот_сотка]Хорошо, вот тебе сотка, извини, я пошёл![VIDEO GopTakes2x50rub]
 																																						[mark_b862mq8bz2l4fe5jbmau]Куда пошёл? Стоять![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/where_are_you_stop][VIDEO GopSpeechLoadingLoop]
 																																							Я же дал тебе сотку, мне идти надо, я опаздываю!
-																																								[Дай_мобилу_позвонить]Дай мобилу позвонить![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/give_me_mobila][VIDEO GopSpeechSimpleLoop]
+																																								[Дай_мобилу_позвонить,give_mobile]Дай мобилу позвонить![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/give_me_mobila][VIDEO GopSpeechSimpleLoop]
 																																									Нет мобилы, дома оставил!
 																																										[mark_36yoq12cltnjvy6xo175]А в кармане чо лежит?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/what_in_packet][VIDEO GopSpeechNibblesSunflowerSeeds]
 																																											Ничего, пусто!
@@ -136,7 +136,7 @@
 																													Нет, нету... Сам с утра стреляю...
 																														[mark_0rw23ne7899688w816nz][GOTO Дай_мобилу_позвонить]
 																											Не надо искать, 2 рубля устроит?[VIDEO GopTakes5rub]
-																												[mark_xyf3o6sjw883s53540w1]Ты чо издеваешься?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/are_you_jeer_me][VIDEO GopSpeechLoadingLoop]
+																												[are_you_kidding]Ты чо издеваешься?[BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/are_you_jeer_me][VIDEO GopSpeechLoadingLoop]
 																													Нет, серъезно.
 																														[mark_a67o9k9377lw5b029e69][GOTO Сиги_есть]
 																													У меня честно, больше нет...
@@ -150,7 +150,7 @@
 																									Пошли вместе, тут идти 5 минут.
 																										[mark_fpif98adq59kx391vi8p]Оки, щас тока кореша кликну![BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/call_koresh][VIDEO GopSpeechNibblesSunflowerSeeds]
 																											Если позовёшь кореша, вам деньги поделить придётся.
-																												[EPISODE4,Лады_погнали]Лады, погнали![AUDIO {this.lang}/ok_go][VIDEO GopSaysOkGo]
+																												[EPISODE4,Лады_погнали,ok_lets_go]Лады, погнали![AUDIO {this.lang}/ok_go][VIDEO GopSaysOkGo]
 																													
 																														[mark_nbjp57xev1rca0mu5h8v][VIDEO GopWasBeaten][AUDIO gop_was_beaten]
 																															
@@ -164,7 +164,7 @@
 																										[Mark_Final7][FINAL Нейтральный финал. Похоже в этот раз ты избавился от гопа...][VIDEO GopGoneLoop]
 																					[GOTO Пошли_друг_займет]
 																			Ну пошли.
-																				[EPISODE5][VIDEO GopsFriendPanchesToFace][AUDIO 8sec_boom]
+																				[EPISODE5,gop_friend_hit_you]...[VIDEO GopsFriendPanchesToFace][AUDIO 8sec_boom]
 																					
 																						[Mark_Final5][FINAL Отрицательный финал. Кореш гопа стукнул тебя в тыкву.]
 																	Да это фуфел какой то...
@@ -189,16 +189,17 @@
 											[Что_тебе_надо]Что тебе от меня надо?
 												[mark_1ru1811u41591n62l6pd][GOTO С_какого_района]
 						[gop_punchs_to_face][VIDEO GopPunchesToFace][AUDIO {this.lang}/Take_it_fool][SOUNDFX boom2][FINAL Время истекло...]
-					[GOTO donate]
-	[donate]Достать лопатник.
-		[mark_ht148aj862wm21q30ogd]{script getPayment}
-			
-				[wait]...[VIDEO GopStandsBouncing][AUDIO silent_4]
-					
-						[mark_y9ehy9jx40feb58j815p]{script checkPayment}
+					[donate]Достать лопатник.
+						[mark_ht148aj862wm21q30ogd]{script getPayment}
 							
-								[payment_success]Благодарочка![VIDEO GopLaughing][AUDIO silent_1,{this.lang}/thankyou][BGNDVIDEO GopHappyLoop]
-									>>>
-										[mark_6qv5u6nf59sq9t7pu0t5][GOTO INTRO]
-								[payment_fail]Чота не так, чел, попробуй еще![VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/tryagain][BGNDVIDEO GopStandsBouncing]
-									[GOTO donate]
+								[wait]...[VIDEO GopStandsBouncing][AUDIO silent_4]
+									
+										[mark_y9ehy9jx40feb58j815p]{script checkPayment}
+											
+												[payment_success]Аха-ха-ха-ха!!![VIDEO GopTakes5rub,GopLaughing][AUDIO silent_2.7,hahaha]
+													
+														[mark_773nu066478li3cn85zf]Благодарочка![VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/thankyou][BGNDVIDEO GopHappyLoop]
+															>>>
+																[mark_9bir6wn3ives740x2h86][GOTO whom_do_you_know,what_district,ok_lets_go,are_you_kidding,give_mobile,gop_friend_hit_you]
+												[payment_fail]Чота не так, чел, попробуй еще![VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/tryagain][BGNDVIDEO GopStandsBouncing]
+													[GOTO donate]

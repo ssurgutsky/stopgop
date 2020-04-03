@@ -395,7 +395,7 @@
                                                                                                                                                                               "_content": "[LABEL У меня баланс нулевой...]"
                                                                                                                                                                             }
                                                                                                                                                                           ],
-                                                                                                                                                                          "_mark": "Дай_мобилу_позвонить",
+                                                                                                                                                                          "_mark": "Дай_мобилу_позвонить,give_mobile",
                                                                                                                                                                           "_content": "[LABEL Дай мобилу позвонить!][VIDEO GopSpeechSimpleLoop][AUDIO {this.lang}/give_me_mobila][BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][TIMEEXPIRED gop_punchs_to_face][ANSWERTIME 30]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
@@ -485,7 +485,7 @@
                                                                                                                                       "_content": "[LABEL ][GOTO У_меня_друг_спортсмен]"
                                                                                                                                     }
                                                                                                                                   ],
-                                                                                                                                  "_mark": "mark_h675q23tj6y17645ggdj",
+                                                                                                                                  "_mark": "whom_do_you_know",
                                                                                                                                   "_content": "[LABEL Кого из пацанов знаешь?][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/whom_knew][BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][TIMEEXPIRED gop_punchs_to_face][ANSWERTIME 30]"
                                                                                                                                 }
                                                                                                                               ],
@@ -551,7 +551,7 @@
                                                                                                                               "_content": "[LABEL С нормального.]"
                                                                                                                             }
                                                                                                                           ],
-                                                                                                                          "_mark": "EPISODE2,С_какого_района",
+                                                                                                                          "_mark": "EPISODE2,С_какого_района,what_district",
                                                                                                                           "_content": "[LABEL Слух, ты ваще с какого района?][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/what_region][BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][TIMEEXPIRED gop_punchs_to_face][ANSWERTIME 30]"
                                                                                                                         }
                                                                                                                       ],
@@ -683,7 +683,7 @@
                                                                                                                               "_content": "[LABEL Вот ещё 2 рубля в левом кармане, последние... смотри!]"
                                                                                                                             }
                                                                                                                           ],
-                                                                                                                          "_mark": "mark_xyf3o6sjw883s53540w1",
+                                                                                                                          "_mark": "are_you_kidding",
                                                                                                                           "_content": "[LABEL Ты чо издеваешься?][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/are_you_jeer_me][BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes][TIMEEXPIRED gop_punchs_to_face][ANSWERTIME 30]"
                                                                                                                         }
                                                                                                                       ],
@@ -751,7 +751,7 @@
                                                                                                                               "_content": "[LABEL ]"
                                                                                                                             }
                                                                                                                           ],
-                                                                                                                          "_mark": "EPISODE4,Лады_погнали",
+                                                                                                                          "_mark": "EPISODE4,Лады_погнали,ok_lets_go",
                                                                                                                           "_content": "[LABEL Лады, погнали!][VIDEO GopSaysOkGo][AUDIO {this.lang}/ok_go]"
                                                                                                                         }
                                                                                                                       ],
@@ -845,8 +845,8 @@
                                                                                               "_content": "[LABEL ]"
                                                                                             }
                                                                                           ],
-                                                                                          "_mark": "EPISODE5",
-                                                                                          "_content": "[LABEL ][VIDEO GopsFriendPanchesToFace][AUDIO 8sec_boom]"
+                                                                                          "_mark": "EPISODE5,gop_friend_hit_you",
+                                                                                          "_content": "[LABEL ...][VIDEO GopsFriendPanchesToFace][AUDIO 8sec_boom]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
@@ -1017,8 +1017,84 @@
                               "_content": "[LABEL Извини, я тороплюсь!]"
                             },
                             {
-                              "_mark": "",
-                              "_content": "[LABEL ][GOTO donate]"
+                              "node": [
+                                {
+                                  "node": [
+                                    {
+                                      "node": [
+                                        {
+                                          "node": [
+                                            {
+                                              "node": [
+                                                {
+                                                  "node": [
+                                                    {
+                                                      "node": [
+                                                        {
+                                                          "node": [
+                                                            {
+                                                              "node": [
+                                                                {
+                                                                  "node": [
+                                                                    {
+                                                                      "node": [
+                                                                        {
+                                                                          "_mark": "mark_9bir6wn3ives740x2h86",
+                                                                          "_content": "[LABEL ][GOTO whom_do_you_know,what_district,ok_lets_go,are_you_kidding,give_mobile,gop_friend_hit_you]"
+                                                                        }
+                                                                      ],
+                                                                      "_mark": "",
+                                                                      "_content": "[LABEL >>>]"
+                                                                    }
+                                                                  ],
+                                                                  "_mark": "mark_773nu066478li3cn85zf",
+                                                                  "_content": "[LABEL Благодарочка!][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/thankyou][BGNDVIDEO GopHappyLoop]"
+                                                                }
+                                                              ],
+                                                              "_mark": "",
+                                                              "_content": "[LABEL ]"
+                                                            }
+                                                          ],
+                                                          "_mark": "payment_success",
+                                                          "_content": "[LABEL Аха-ха-ха-ха!!!][VIDEO GopTakes5rub,GopLaughing][AUDIO silent_2.7,hahaha]"
+                                                        },
+                                                        {
+                                                          "node": [
+                                                            {
+                                                              "_mark": "",
+                                                              "_content": "[LABEL ][GOTO donate]"
+                                                            }
+                                                          ],
+                                                          "_mark": "payment_fail",
+                                                          "_content": "[LABEL Чота не так, чел, попробуй еще!][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/tryagain][BGNDVIDEO GopStandsBouncing]"
+                                                        }
+                                                      ],
+                                                      "_mark": "",
+                                                      "_content": "[LABEL ]"
+                                                    }
+                                                  ],
+                                                  "_mark": "mark_y9ehy9jx40feb58j815p",
+                                                  "_content": "[LABEL {script checkPayment}]"
+                                                }
+                                              ],
+                                              "_mark": "",
+                                              "_content": "[LABEL ]"
+                                            }
+                                          ],
+                                          "_mark": "wait",
+                                          "_content": "[LABEL ...][VIDEO GopStandsBouncing][AUDIO silent_4]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL ]"
+                                    }
+                                  ],
+                                  "_mark": "mark_ht148aj862wm21q30ogd",
+                                  "_content": "[LABEL {script getPayment}]"
+                                }
+                              ],
+                              "_mark": "donate",
+                              "_content": "[LABEL Достать лопатник.]"
                             }
                           ],
                           "_mark": "GAME_SAVEPOINT,language_ru",
@@ -1035,74 +1111,6 @@
               ],
               "_mark": "",
               "_content": "[LABEL НАЧАТЬ ИГРУ / START GAME]"
-            },
-            {
-              "node": [
-                {
-                  "node": [
-                    {
-                      "node": [
-                        {
-                          "node": [
-                            {
-                              "node": [
-                                {
-                                  "node": [
-                                    {
-                                      "node": [
-                                        {
-                                          "node": [
-                                            {
-                                              "node": [
-                                                {
-                                                  "_mark": "mark_6qv5u6nf59sq9t7pu0t5",
-                                                  "_content": "[LABEL ][GOTO INTRO]"
-                                                }
-                                              ],
-                                              "_mark": "",
-                                              "_content": "[LABEL >>>]"
-                                            }
-                                          ],
-                                          "_mark": "payment_success",
-                                          "_content": "[LABEL Благодарочка!][VIDEO GopLaughing][AUDIO silent_1,{this.lang}/thankyou][BGNDVIDEO GopHappyLoop]"
-                                        },
-                                        {
-                                          "node": [
-                                            {
-                                              "_mark": "",
-                                              "_content": "[LABEL ][GOTO donate]"
-                                            }
-                                          ],
-                                          "_mark": "payment_fail",
-                                          "_content": "[LABEL Чота не так, чел, попробуй еще!][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/tryagain][BGNDVIDEO GopStandsBouncing]"
-                                        }
-                                      ],
-                                      "_mark": "",
-                                      "_content": "[LABEL ]"
-                                    }
-                                  ],
-                                  "_mark": "mark_y9ehy9jx40feb58j815p",
-                                  "_content": "[LABEL {script checkPayment}]"
-                                }
-                              ],
-                              "_mark": "",
-                              "_content": "[LABEL ]"
-                            }
-                          ],
-                          "_mark": "wait",
-                          "_content": "[LABEL ...][VIDEO GopStandsBouncing][AUDIO silent_4]"
-                        }
-                      ],
-                      "_mark": "",
-                      "_content": "[LABEL ]"
-                    }
-                  ],
-                  "_mark": "mark_ht148aj862wm21q30ogd",
-                  "_content": "[LABEL {script getPayment}]"
-                }
-              ],
-              "_mark": "donate",
-              "_content": "[LABEL Достать лопатник.]"
             }
           ],
           "_mark": "INTRO",

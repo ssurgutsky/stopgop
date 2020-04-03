@@ -4,7 +4,7 @@ let productId = "com.kri_games.sg.coin3";
 
 this.payment_pending = true;
 this.payment_success = false;
-
+/*
 this.store.order(productId)
     .then((p) => {
         console.log("store.order.then::", p);
@@ -35,8 +35,8 @@ this.store.order(productId)
 
         console.log("store.order.error:: ERROR " + e.code + ": " + e.message);
     });
+/**/
 
-
-// setTimeout(() => {this.payment_pending = false; this.payment_success = false;}, 10000)
+setTimeout(() => {this.payment_pending = false; this.payment_success = true;}, 3000)
 
 '';
