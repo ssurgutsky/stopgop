@@ -189,6 +189,7 @@
 											[Что_тебе_надо]Что тебе от меня надо?
 												[mark_1ru1811u41591n62l6pd][GOTO С_какого_района]
 						[gop_punchs_to_face][VIDEO GopPunchesToFace][AUDIO {this.lang}/Take_it_fool][SOUNDFX boom2][FINAL Время истекло...]
+					[GOTO donate]
 	[donate]Достать лопатник.
 		[mark_ht148aj862wm21q30ogd]{script getPayment}
 			

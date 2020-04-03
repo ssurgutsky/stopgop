@@ -89,13 +89,13 @@ export default {
         type: window.store.CONSUMABLE
       })
 
+      // Store global error handler (to see errors in console in Chrome inspect)
       window.store.error(function (error) {
         console.log('%c ERROR ' + error.code + ': ' + error.message, 'background: #FF0000; color: #FFFFFF')
       })
 
-      // ... MORE HERE SOON
-
       window.store.refresh()
+
       this.gameData.store = window.store
     },
 
@@ -104,8 +104,20 @@ export default {
       if (markName) {
         console.log('Saving... markName:', markName)
         localStorage.setItem('markName', markName)
+
+        // Temporary remove IAP store from gameData but remember IAP store link
+        let storeLink = this.gameData.store
+        this.gameData.store = null
+
+        // Remove Vue's reactivity
         const saveObj = { ...this.gameData }
+
+        // Save the copy to local storage
         localStorage.setItem('gameData', JSON.stringify(saveObj))
+
+        // Restore link to the IAP store
+        this.gameData.store = storeLink
+
         console.log('gameData:', saveObj)
         return true
       }
@@ -116,7 +128,15 @@ export default {
       let markName = localStorage.getItem('markName')
       console.log('Loading... markName:', markName)
       if (markName) {
+        // Remember link to the IAP store
+        let storeLink = this.gameData.store
+
+        // Load data from the local storage
         this.gameData = JSON.parse(localStorage.getItem('gameData'))
+
+        // Restore link to the IAP store
+        this.gameData.store = storeLink
+
         console.log('gameData:', this.gameData)
         this.gotoMark(markName)
         return true

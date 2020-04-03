@@ -1015,6 +1015,10 @@
                               ],
                               "_mark": "",
                               "_content": "[LABEL Извини, я тороплюсь!]"
+                            },
+                            {
+                              "_mark": "",
+                              "_content": "[LABEL ][GOTO donate]"
                             }
                           ],
                           "_mark": "GAME_SAVEPOINT,language_ru",
