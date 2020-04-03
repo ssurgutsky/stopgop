@@ -152,7 +152,7 @@
 																											Если позовёшь кореша, вам деньги поделить придётся.
 																												[EPISODE4,Лады_погнали,ok_lets_go]Лады, погнали![AUDIO {this.lang}/ok_go][VIDEO GopSaysOkGo]
 																													
-																														[mark_nbjp57xev1rca0mu5h8v][VIDEO GopWasBeaten][AUDIO gop_was_beaten]
+																														[mark_nbjp57xev1rca0mu5h8v]...[VIDEO GopWasBeaten][AUDIO gop_was_beaten]
 																															
 																																[Mark_Final9][FINAL Положительный финал! Твой друг замочил гопа!]
 																											А что ты один боишься?
