@@ -14,10 +14,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "cc.fovea.cordova.purchase": "^8.1.1",
     "cordova": "^9.0.0",
     "cordova-android": "^8.1.0",
     "cordova-plugin-inappbrowser": "^3.2.0",
+    "cordova-plugin-purchase": "^10.0.1",
     "raw-loader": "^4.0.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
@@ -95,7 +95,7 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-inappbrowser": {},
-      "cc.fovea.cordova.purchase": {
+      "cordova-plugin-purchase": {
         "BILLING_KEY": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsPxnyHSPC/3m3z6QaLETZTCNNI5NuUSZcYeKOhUjCQP+A94tnwY7P4dHZd+CFwZR9ZTni07hByhlotOQj5NliF/qpruwnASHa/EvT0qqU4GpBhi1ET0hcagzGaS3xpUQ+Dc5af+x3dlge1LL1VPM5sioVgj+PV1zl93fJHxLHhigtVB8rOf/Sq5BUPUTMODCiSMDxKM/AKpb0ZSKrZGvc04rRY7Vhz1+KK4PtfCFe/HnOG5M1yjMDlZSdE9CRukWOzvDk798UFPQ69X3dqo2HDDmALQVfnqjOUVT+CAEjwowA3Xxzb6smeYV348OI7/4HKcOy/PUsJXAd9xyh56C4QIDAQAB"
       }
     },

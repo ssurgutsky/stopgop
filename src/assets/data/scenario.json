@@ -91,6 +91,12 @@
                                                                                                                                                                                     {
                                                                                                                                                                                       "node": [
                                                                                                                                                                                         {
+                                                                                                                                                                                          "node": [
+                                                                                                                                                                                            {
+                                                                                                                                                                                              "_mark": "",
+                                                                                                                                                                                              "_content": "[LABEL ][GOTO donate]"
+                                                                                                                                                                                            }
+                                                                                                                                                                                          ],
                                                                                                                                                                                           "_mark": "mark_a64n324y0635c1ea68a8",
                                                                                                                                                                                           "_content": "[LABEL Главный финал! Ты только что протряс гопа!][BGNDVIDEO Titles][MUSIC none]"
                                                                                                                                                                                         }
@@ -1043,8 +1049,14 @@
                                         {
                                           "node": [
                                             {
+                                              "node": [
+                                                {
+                                                  "_mark": "mark_6qv5u6nf59sq9t7pu0t5",
+                                                  "_content": "[LABEL ][GOTO INTRO]"
+                                                }
+                                              ],
                                               "_mark": "",
-                                              "_content": "[LABEL ][GOTO donate]"
+                                              "_content": "[LABEL >>>]"
                                             }
                                           ],
                                           "_mark": "payment_success",
@@ -1058,7 +1070,7 @@
                                             }
                                           ],
                                           "_mark": "payment_fail",
-                                          "_content": "[LABEL Чо та не так, браток!][VIDEO GopSpeechLoadingLoop][AUDIO silent_2.13][BGNDVIDEO GopStandsBouncing]"
+                                          "_content": "[LABEL Чота не так, чел, попробуй еще!][VIDEO GopSpeechLoadingLoop][AUDIO silent_2.13][BGNDVIDEO GopStandsBouncing]"
                                         }
                                       ],
                                       "_mark": "",
@@ -1074,7 +1086,7 @@
                             }
                           ],
                           "_mark": "wait",
-                          "_content": "[LABEL ...][VIDEO GopStandsBouncing][AUDIO silent_5]"
+                          "_content": "[LABEL ...][VIDEO GopStandsBouncing][AUDIO silent_4]"
                         }
                       ],
                       "_mark": "",
@@ -1090,7 +1102,7 @@
             }
           ],
           "_mark": "INTRO",
-          "_content": "[LABEL Симулятор общения с гопником.{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg]"
+          "_content": "[LABEL Симулятор общения с гопником.{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
         }
       ]
     }

@@ -81,9 +81,11 @@ export default {
         return
       }
 
+      // window.store.verbosity = window.store.DEBUG
+
       window.store.register({
-        id: 'com.krigames.sg.coin',
-        alias: 'coin',
+        id: 'com.kri_games.sg.coin3',
+        alias: 'coin3',
         type: window.store.CONSUMABLE
       })
 
