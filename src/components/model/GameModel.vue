@@ -61,12 +61,12 @@ export default {
       this.createMarksDictionary(scenario)
       // console.log(this.marksDictionary)
 
-      console.log('gameScriptsDictionary:', this.gameScriptsDictionary)
-
-      commonUtils.runTests()
-      this.runTests()
-
       if (process.env.$debug) {
+        console.log('gameScriptsDictionary:', this.gameScriptsDictionary)
+
+        commonUtils.runTests()
+        this.runTests()
+
         this.initStore()
       } else {
         document.addEventListener('deviceready', this.initStore)
