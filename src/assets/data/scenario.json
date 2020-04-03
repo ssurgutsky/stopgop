@@ -1064,7 +1064,7 @@
                                             }
                                           ],
                                           "_mark": "payment_success",
-                                          "_content": "[LABEL Благодарочка!][VIDEO GopLaughing][AUDIO silent_2.13][BGNDVIDEO GopHappyLoop]"
+                                          "_content": "[LABEL Благодарочка!][VIDEO GopLaughing][AUDIO silent_1,{this.lang}/thankyou][BGNDVIDEO GopHappyLoop]"
                                         },
                                         {
                                           "node": [
@@ -1074,7 +1074,7 @@
                                             }
                                           ],
                                           "_mark": "payment_fail",
-                                          "_content": "[LABEL Чота не так, чел, попробуй еще!][VIDEO GopSpeechLoadingLoop][AUDIO silent_2.13][BGNDVIDEO GopStandsBouncing]"
+                                          "_content": "[LABEL Чота не так, чел, попробуй еще!][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/tryagain][BGNDVIDEO GopStandsBouncing]"
                                         }
                                       ],
                                       "_mark": "",

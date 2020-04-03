@@ -197,8 +197,8 @@
 					
 						[mark_y9ehy9jx40feb58j815p]{script checkPayment}
 							
-								[payment_success]Благодарочка![VIDEO GopLaughing][AUDIO silent_2.13][BGNDVIDEO GopHappyLoop]
+								[payment_success]Благодарочка![VIDEO GopLaughing][AUDIO silent_1,{this.lang}/thankyou][BGNDVIDEO GopHappyLoop]
 									>>>
 										[mark_6qv5u6nf59sq9t7pu0t5][GOTO INTRO]
-								[payment_fail]Чота не так, чел, попробуй еще![VIDEO GopSpeechLoadingLoop][AUDIO silent_2.13][BGNDVIDEO GopStandsBouncing]
+								[payment_fail]Чота не так, чел, попробуй еще![VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/tryagain][BGNDVIDEO GopStandsBouncing]
 									[GOTO donate]
