@@ -61,8 +61,9 @@ export default {
       this.createMarksDictionary(scenario)
       // console.log(this.marksDictionary)
 
-      if (process.env.$debug) {
-        console.log('gameScriptsDictionary:', this.gameScriptsDictionary)
+      // console.log('this.$debug', this.$debug)
+      if (this.$debug) {
+        // console.log('gameScriptsDictionary:', this.gameScriptsDictionary)
 
         commonUtils.runTests()
         this.runTests()
@@ -84,8 +85,14 @@ export default {
       // window.store.verbosity = window.store.DEBUG
 
       window.store.register({
-        id: 'com.kri_games.sg.coin3',
-        alias: 'coin3',
+        id: 'com.kri_games.alco.coin1',
+        alias: 'coin1',
+        type: window.store.CONSUMABLE
+      })
+
+      window.store.register({
+        id: 'com.kri_games.alco.episodes',
+        alias: 'episodes',
         type: window.store.CONSUMABLE
       })
 
@@ -144,6 +151,16 @@ export default {
       return false
     },
 
+    savePurchasedItem (purchaseItem) {
+      console.log('Saving... purchaseItem:', purchaseItem)
+      localStorage.setItem(purchaseItem, true)
+    },
+
+    loadPurchasedItem (purchaseItem) {
+      console.log('Loading... purchaseItem:', purchaseItem)
+      return localStorage.getItem(purchaseItem)
+    },
+
     restartGame () {
       this.currentNode = scenario.node[0].node[0]
       if (this.sessions > 0) {
@@ -199,7 +216,7 @@ export default {
         let markName = commonUtils.getArrayRandomElement(markNames)
         result = this.findNodeWithMark(scenario, markName)
         if (!result) {
-          console.log('Cant find mark in scenario!', markName)
+          console.log('%c Cant find mark in scenario!' + markName, 'background: #FF0000; color: #FFFFFF')
           return node
         }
 
@@ -213,12 +230,13 @@ export default {
     },
 
     prepareCurrentQuestion () {
-      this.prevQuestionNodes.push(this.currentNode)
-
       this.currentNode = this.processGOTONode(this.currentNode)
 
       const saveObj = { ...this.gameData }
       this.currentNode._gameData = JSON.parse(JSON.stringify(saveObj))
+
+      // NOTE: should stay after _gameData set!!!
+      this.prevQuestionNodes.push(this.currentNode)
 
       // console.log('gameData:', this.gameData)
 
@@ -232,8 +250,19 @@ export default {
 
       this.navigateUrl = commonUtils.getTagValueNAVIGATEURL(this.currentNode._parsedContent)
 
-      const bgndImagesSequence = commonUtils.getTagValueBGNDIMAGE(this.currentNode._parsedContent)
+      this.purchaseItem = commonUtils.getTagValuePURCHASE(this.currentNode._parsedContent)
+      console.log('purchaseItem:', this.purchaseItem)
+
+      let bgndImagesSequence = commonUtils.getTagValueBGNDIMAGE(this.currentNode._parsedContent)
       this.currentBgndImages = commonUtils.getArrayRandomElement(bgndImagesSequence)
+
+      // If need to keep [BGNDIMAGE ] content the same as [IMAGE ]
+      // But just re-eval scripts of [IMAGE ]
+      if (this.currentBgndImages === '*') {
+        var tmpParsedContent = this.evalString(this.currentNode._content)
+        bgndImagesSequence = commonUtils.getTagValueIMAGE(tmpParsedContent)
+        this.currentBgndImages = commonUtils.getArrayRandomElement(bgndImagesSequence)
+      }
 
       const imagesSequence = commonUtils.getTagValueIMAGE(this.currentNode._parsedContent)
       this.currentImages = commonUtils.getArrayRandomElement(imagesSequence)

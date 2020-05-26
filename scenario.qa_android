@@ -190,7 +190,16 @@
 												[mark_1ru1811u41591n62l6pd][GOTO С_какого_района]
 						[gop_punchs_to_face][VIDEO GopPunchesToFace][AUDIO {this.lang}/Take_it_fool][SOUNDFX boom2][FINAL Время истекло...]
 					[donate]Достать лопатник.
-						[mark_v2r3fay37ksl69b2u4a0][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
+						[mark_ht148aj862wm21q30ogd]{script getPayment}
 							
-								[mark_2czjpaenu1x9s27dovb5][GOTO INTRO]
-	[GOTO donate]
+								[wait]...[VIDEO GopStandsBouncing][AUDIO silent_4]
+									
+										[mark_y9ehy9jx40feb58j815p]{script checkPayment}
+											
+												[payment_success]Аха-ха-ха-ха!!![VIDEO GopTakes5rub,GopLaughing][AUDIO silent_2.7,hahaha]
+													
+														[mark_773nu066478li3cn85zf]Благодарочка![VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/thankyou][BGNDVIDEO GopHappyLoop]
+															>>>
+																[mark_9bir6wn3ives740x2h86][GOTO whom_do_you_know,what_district,ok_lets_go,are_you_kidding,give_mobile,gop_friend_hit_you]
+												[payment_fail]Чота не так, чел, попробуй еще![VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/tryagain][BGNDVIDEO GopStandsBouncing]
+													[GOTO donate]

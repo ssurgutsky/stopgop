@@ -1023,74 +1023,16 @@
                                     {
                                       "node": [
                                         {
-                                          "node": [
-                                            {
-                                              "node": [
-                                                {
-                                                  "node": [
-                                                    {
-                                                      "node": [
-                                                        {
-                                                          "node": [
-                                                            {
-                                                              "node": [
-                                                                {
-                                                                  "node": [
-                                                                    {
-                                                                      "node": [
-                                                                        {
-                                                                          "_mark": "mark_9bir6wn3ives740x2h86",
-                                                                          "_content": "[LABEL ][GOTO whom_do_you_know,what_district,ok_lets_go,are_you_kidding,give_mobile,gop_friend_hit_you]"
-                                                                        }
-                                                                      ],
-                                                                      "_mark": "",
-                                                                      "_content": "[LABEL >>>]"
-                                                                    }
-                                                                  ],
-                                                                  "_mark": "mark_773nu066478li3cn85zf",
-                                                                  "_content": "[LABEL Благодарочка!][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/thankyou][BGNDVIDEO GopHappyLoop]"
-                                                                }
-                                                              ],
-                                                              "_mark": "",
-                                                              "_content": "[LABEL ]"
-                                                            }
-                                                          ],
-                                                          "_mark": "payment_success",
-                                                          "_content": "[LABEL Аха-ха-ха-ха!!!][VIDEO GopTakes5rub,GopLaughing][AUDIO silent_2.7,hahaha]"
-                                                        },
-                                                        {
-                                                          "node": [
-                                                            {
-                                                              "_mark": "",
-                                                              "_content": "[LABEL ][GOTO donate]"
-                                                            }
-                                                          ],
-                                                          "_mark": "payment_fail",
-                                                          "_content": "[LABEL Чота не так, чел, попробуй еще!][VIDEO GopSpeechLoadingLoop][AUDIO {this.lang}/tryagain][BGNDVIDEO GopStandsBouncing]"
-                                                        }
-                                                      ],
-                                                      "_mark": "",
-                                                      "_content": "[LABEL ]"
-                                                    }
-                                                  ],
-                                                  "_mark": "mark_y9ehy9jx40feb58j815p",
-                                                  "_content": "[LABEL {script checkPayment}]"
-                                                }
-                                              ],
-                                              "_mark": "",
-                                              "_content": "[LABEL ]"
-                                            }
-                                          ],
-                                          "_mark": "wait",
-                                          "_content": "[LABEL ...][VIDEO GopStandsBouncing][AUDIO silent_4]"
+                                          "_mark": "mark_2czjpaenu1x9s27dovb5",
+                                          "_content": "[LABEL ][GOTO INTRO]"
                                         }
                                       ],
                                       "_mark": "",
                                       "_content": "[LABEL ]"
                                     }
                                   ],
-                                  "_mark": "mark_ht148aj862wm21q30ogd",
-                                  "_content": "[LABEL {script getPayment}]"
+                                  "_mark": "mark_v2r3fay37ksl69b2u4a0",
+                                  "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
                                 }
                               ],
                               "_mark": "donate",
@@ -1111,6 +1053,10 @@
               ],
               "_mark": "",
               "_content": "[LABEL НАЧАТЬ ИГРУ / START GAME]"
+            },
+            {
+              "_mark": "",
+              "_content": "[LABEL ][GOTO donate]"
             }
           ],
           "_mark": "INTRO",
