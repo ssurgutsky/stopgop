@@ -57,6 +57,33 @@ export default {
     }
   },
   methods: {
+
+    async gameVideosDictionary () {
+      const requireContext = require.context('@/assets/video', false, /\.(mp4)(\?.*)?$/)
+      let result = requireContext.keys().map(file =>
+        [file.replace(/(^.\/)|(\.(mp4)(\?.*)?$)/g, ''), requireContext(file)]
+      )
+      result = await this.processArray(result)
+      console.log('>>>>>>>>>>>>', result)
+      return result
+    },
+
+    async processArray (array) {
+      for (const item of array) {
+        console.log(item)
+        let url = require('@/assets/video/' + item[0] + '.mp4')
+        console.log(url)
+        await fetch(url).then(response => {
+          response.blob().then(blob => {
+            console.log(blob)
+            array[name] = blob
+          })
+        })
+      }
+      console.log('Done!')
+      return array
+    },
+
     prepareData () {
       this.createMarksDictionary(scenario)
       // console.log(this.marksDictionary)
@@ -64,6 +91,8 @@ export default {
       // console.log('this.$debug', this.$debug)
       if (this.$debug) {
         // console.log('gameScriptsDictionary:', this.gameScriptsDictionary)
+        let dic = async () => this.gameVideosDictionary()
+        console.log('gameVideosDictionary:', dic)
 
         commonUtils.runTests()
         this.runTests()
