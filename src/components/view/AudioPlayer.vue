@@ -62,6 +62,10 @@ export default {
       }
       this.audioPlayer.loop = loop
       this.audioPlayer.src = require('@/assets/audio/' + name + '.mp3')
+      this.audioPlayer.pause()
+      setTimeout(() => {
+        this.audioPlayer.play()
+      }, 10)
     },
 
     stopAudio () {
@@ -97,6 +101,10 @@ export default {
 
       this.ambientPlayer.loop = true
       this.ambientPlayer.src = require('@/assets/audio/' + name + '.mp3')
+      this.ambientPlayer.pause()
+      setTimeout(() => {
+        this.ambientPlayer.play()
+      }, 10)
     },
 
     playMusic (name) {
@@ -114,6 +122,10 @@ export default {
       }
 
       this.musicPlayer.src = require('@/assets/audio/' + name + '.mp3')
+      this.musicPlayer.pause()
+      setTimeout(() => {
+        this.musicPlayer.play()
+      }, 10)
     },
 
     onMusicEnded () {
@@ -124,6 +136,10 @@ export default {
     playSFX (name) {
       console.log('SFX', name)
       this.sfxPlayer.src = require('@/assets/audio/' + name + '.mp3')
+      this.sfxPlayer.pause()
+      setTimeout(() => {
+        this.sfxPlayer.play()
+      }, 10)
     },
 
     stopSFX () {

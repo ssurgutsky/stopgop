@@ -14,6 +14,7 @@ export default {
   name: 'VideoPlayer',
   data () {
     return {
+      isFirstRun: true,
       videoPlayer1: null,
       videoPlayer2: null,
       currentVideoPlayer: null,
@@ -66,14 +67,22 @@ export default {
         return
       }
 
-      if (this.currentPlayerNo === 1) {
+      if (this.currentPlayerNo === 1 || this.isFirstRun) {
         this.videoPlayer1.loop = loop
         this.videoPlayer1.src = this.getVideoPathByName(name)
+        this.videoPlayer1.pause()
+        setTimeout(() => {
+          this.videoPlayer1.play()
+        }, 10)
       }
 
-      if (this.currentPlayerNo === 2) {
+      if (this.currentPlayerNo === 2 || this.isFirstRun) {
         this.videoPlayer2.loop = loop
         this.videoPlayer2.src = this.getVideoPathByName(name)
+        this.videoPlayer2.pause()
+        setTimeout(() => {
+          this.videoPlayer2.play()
+        }, 10)
       }
     },
 
@@ -97,15 +106,21 @@ export default {
     onCanPlay (event) {
       // console.log('canPlay')
 
-      if (this.currentPlayerNo === 1) {
-        this.videoPlayer1.play()
+      if (this.currentPlayerNo === 1 || this.isFirstRun) {
+        setTimeout(() => {
+          this.videoPlayer1.play()
+        }, 10)
       }
 
-      if (this.currentPlayerNo === 2) {
-        this.videoPlayer2.play()
+      if (this.currentPlayerNo === 2 || this.isFirstRun) {
+        setTimeout(() => {
+          this.videoPlayer2.play()
+        }, 10)
       }
 
       this.switchVideoPlayer()
+
+      this.isFirstRun = false
     },
 
     switchVideoPlayer () {
