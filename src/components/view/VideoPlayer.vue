@@ -6,11 +6,17 @@
     <video playsinline :style="styleObject2" autoplay :loop="loop" ref="videoPlayer2" @canplay="onCanPlay" @ended="onEnd">
       <source type="video/mp4" />
     </video>
+    <CacheController ref="cacheController"></CacheController>
   </div>
 </template>
 
 <script>
+import CacheController from '@/components/controller/CacheController.vue'
+
 export default {
+  components: {
+    CacheController
+  },
   name: 'VideoPlayer',
   data () {
     return {
@@ -51,6 +57,7 @@ export default {
       // console.log(this.$refs)
       this.videoPlayer1 = this.$refs.videoPlayer1
       this.videoPlayer2 = this.$refs.videoPlayer2
+      this.cacheController = this.$refs.cacheController
     },
 
     playVideo (name, loop) {
@@ -69,7 +76,7 @@ export default {
 
       if (this.currentPlayerNo === 1 || this.isFirstRun) {
         this.videoPlayer1.loop = loop
-        this.videoPlayer1.src = this.getVideoPathByName(name)
+        this.videoPlayer1.src = this.getVideoSrc(name)
         this.videoPlayer1.pause()
         setTimeout(() => {
           this.videoPlayer1.play()
@@ -78,12 +85,22 @@ export default {
 
       if (this.currentPlayerNo === 2 || this.isFirstRun) {
         this.videoPlayer2.loop = loop
-        this.videoPlayer2.src = this.getVideoPathByName(name)
+        this.videoPlayer2.src = this.getVideoSrc(name)
         this.videoPlayer2.pause()
         setTimeout(() => {
           this.videoPlayer2.play()
         }, 10)
       }
+    },
+
+    getVideoSrc (name) {
+      let blob = this.cacheController.getVideoBlobByName(name)
+      if (blob) {
+        var url = URL.createObjectURL(blob)
+        return url
+      }
+      return null
+      // return this.getVideoPathByName(name)
     },
 
     getVideoPathByName (name) {
