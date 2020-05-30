@@ -4,6 +4,7 @@ export default {
   CATEGORY_AUDIO: 'audio',
   CATEGORY_IMAGES: 'images',
   CATEGORY_SCRIPTS: 'scripts',
+  CATEGORY_DATA: 'data',
   gameAssets: {},
 
   getAssetBlobByName (category, name) {
@@ -24,6 +25,11 @@ export default {
       case this.CATEGORY_SCRIPTS:
         if (assetName.indexOf('.qsp') < 0) {
           assetName = name + '.qsp'
+        }
+        break
+      case this.CATEGORY_DATA:
+        if (assetName.indexOf('.json') < 0) {
+          assetName = name + '.json'
         }
         break
     }
@@ -83,7 +89,7 @@ export default {
           }
           // console.log('cachedAsset', {'current': counter, 'total': array.length})
 
-          if (name.indexOf('scripts') >= 0) {
+          if (name.indexOf('scripts') >= 0 || name.indexOf('scenario') >= 0) {
             result[name] = item[1]
           } else {
             result[name] = blob

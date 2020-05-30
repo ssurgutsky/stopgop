@@ -72,6 +72,10 @@ export default {
     assetsCached () {
       // Start the game once all assets have been cached
       this.mainView.showGameView()
+      let jsonObj = CacheController.getAssetBlobByName(CacheController.CATEGORY_DATA, 'scenario.json')
+      this.gameModel.scenario = jsonObj
+      // console.log('========', this.gameModel.scenario)
+      this.gameModel.prepareData()
       this.restartGame()
     },
 

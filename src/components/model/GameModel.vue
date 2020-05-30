@@ -6,11 +6,9 @@
 
 import commonUtils from '@/components/utils/CommonUtils.js'
 
-import scenario from '@/assets/data/scenario.json'
-
 export default {
   data: () => ({
-    scenario,
+    scenario: null,
     marksDictionary: {},
     scriptsDictionary: {},
     sessions: 0,
@@ -39,10 +37,6 @@ export default {
     navigateUrl: '',
     episodeNo: 1
   }),
-  mounted () {
-    // console.log(this.scenario)
-    this.prepareData()
-  },
   computed: {
   //   gameScriptsDictionary () {
   //     const requireContext = require.context('@/assets/scripts', false, /\.(txt|qsp)(\?.*)?$/)
@@ -58,7 +52,8 @@ export default {
   },
   methods: {
     prepareData () {
-      this.createMarksDictionary(scenario)
+      console.log('scenario', this.scenario)
+      this.createMarksDictionary(this.scenario)
       // console.log(this.marksDictionary)
 
       // console.log('this.$debug', this.$debug)
@@ -160,9 +155,9 @@ export default {
     },
 
     restartGame () {
-      this.currentNode = scenario.node[0].node[0]
+      this.currentNode = this.scenario.node[0].node[0]
       if (this.sessions > 0) {
-        let startNode = this.findNodeWithMark(scenario, 'GAME_SAVEPOINT')
+        let startNode = this.findNodeWithMark(this.scenario, 'GAME_SAVEPOINT')
         if (startNode) {
           this.currentNode = startNode
         }
@@ -212,7 +207,7 @@ export default {
 
       while (markNames.length > 0) {
         let markName = commonUtils.getArrayRandomElement(markNames)
-        result = this.findNodeWithMark(scenario, markName)
+        result = this.findNodeWithMark(this.scenario, markName)
         if (!result) {
           console.log('%c Cant find mark in scenario!' + markName, 'background: #FF0000; color: #FFFFFF')
           return node
@@ -473,7 +468,7 @@ export default {
 
     setEpisode () {
       console.log('setEpisode', this.episodeNo)
-      const episodeNode = this.findNodeWithMark(scenario, 'EPISODE' + this.episodeNo)
+      const episodeNode = this.findNodeWithMark(this.scenario, 'EPISODE' + this.episodeNo)
       if (episodeNode) {
         this.currentNode = episodeNode
         this.episodeNo++
@@ -485,7 +480,7 @@ export default {
 
     gotoMark (markName) {
       console.log('gotoMark', markName)
-      const gotoNode = this.findNodeWithMark(scenario, markName)
+      const gotoNode = this.findNodeWithMark(this.scenario, markName)
       if (gotoNode) {
         this.currentNode = gotoNode
       } else {
@@ -495,7 +490,7 @@ export default {
 
     processTimeExpired () {
       if (this.timeExpiredMark !== '') {
-        let gotoNode = this.findNodeWithMark(scenario, this.timeExpiredMark)
+        let gotoNode = this.findNodeWithMark(this.scenario, this.timeExpiredMark)
         if (gotoNode) {
           this.currentNode = gotoNode
         }
@@ -518,7 +513,7 @@ export default {
     runTests () {
       let input = 'Mark_Final1'
       let output = true
-      let result = this.findNodeWithMark(scenario, 'Mark_Final1') !== null
+      let result = this.findNodeWithMark(this.scenario, 'Mark_Final1') !== null
       commonUtils.checkCondition(input, output, result)
 
       this.gameData = {a: 1}
