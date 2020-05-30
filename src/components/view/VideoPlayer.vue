@@ -6,17 +6,13 @@
     <video playsinline :style="styleObject2" autoplay :loop="loop" ref="videoPlayer2" @canplay="onCanPlay" @ended="onEnd">
       <source type="video/mp4" />
     </video>
-    <CacheController ref="cacheController"></CacheController>
   </div>
 </template>
 
 <script>
-import CacheController from '@/components/controller/CacheController.vue'
+import CacheController from '@/components/controller/CacheController.js'
 
 export default {
-  components: {
-    CacheController
-  },
   name: 'VideoPlayer',
   data () {
     return {
@@ -57,12 +53,10 @@ export default {
       // console.log(this.$refs)
       this.videoPlayer1 = this.$refs.videoPlayer1
       this.videoPlayer2 = this.$refs.videoPlayer2
-      this.cacheController = this.$refs.cacheController
     },
 
     playVideo (name, loop) {
       console.log(name)
-
       this.currentVideoName = name
 
       if (name.toUpperCase() === 'NONE') {
@@ -94,7 +88,7 @@ export default {
     },
 
     getVideoSrc (name) {
-      let blob = this.cacheController.getVideoBlobByName(name)
+      let blob = CacheController.getVideoBlobByName(name)
       if (blob) {
         var url = URL.createObjectURL(blob)
         return url

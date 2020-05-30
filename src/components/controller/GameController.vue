@@ -15,23 +15,18 @@
       ref="mainView">
     </MainView>
     <GameModel ref="gameModel"></GameModel>
-    <CacheController
-      @assetsCached="assetsCached"
-      ref="cacheController">
-    </CacheController>
   </div>
 </template>
 
 <script>
-import CacheController from '@/components/controller/CacheController.vue'
+import CacheController from '@/components/controller/CacheController.js'
 import MainView from '@/components/view/MainView.vue'
 import GameModel from '@/components/model/GameModel.vue'
 
 export default {
   components: {
     MainView,
-    GameModel,
-    CacheController
+    GameModel
   },
   data () {
     return {
@@ -53,9 +48,13 @@ export default {
     initialize () {
       this.mainView = this.$refs.mainView
       this.gameModel = this.$refs.gameModel
-      this.acheController = this.$refs.cacheController
 
       this.loadPurchasedItems()
+
+      CacheController.loadAssets().then(res => {
+        // console.log('gameVideosDictionary:', res)
+        this.assetsCached()
+      })
     },
 
     assetsCached () {
