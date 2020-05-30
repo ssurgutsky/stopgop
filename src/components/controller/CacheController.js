@@ -1,6 +1,7 @@
 export default {
   CATEGORY_VIDEO: 'video',
   CATEGORY_AUDIO: 'audio',
+  CATEGORY_IMAGES: 'images',
   gameAssets: {},
 
   getAssetBlobByName (category, name) {
@@ -15,6 +16,8 @@ export default {
         if (assetName.indexOf('.mp3') < 0) {
           assetName = name + '.mp3'
         }
+        break
+      case this.CATEGORY_IMAGES:
         break
     }
     return this.gameAssets[category + '/' + assetName]
@@ -35,7 +38,7 @@ export default {
   },
 
   async loadGameAssetsDictionary () {
-    const requireContext = require.context('@/assets/', true, /\.(mp3|mp4)(\?.*)?$/)
+    const requireContext = require.context('@/assets/', true, /\.(mp3|mp4|jpg|png)(\?.*)?$/)
     let arr = requireContext.keys().map(file =>
       [file.replace('./', ''), requireContext(file)]
     )
