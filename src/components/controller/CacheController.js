@@ -1,4 +1,5 @@
 export default {
+  preloadingCallback: null,
   CATEGORY_VIDEO: 'video',
   CATEGORY_AUDIO: 'audio',
   CATEGORY_IMAGES: 'images',
@@ -29,6 +30,10 @@ export default {
     let path = category + '/' + assetName
     console.log(path)
     return this.gameAssets[path]
+  },
+
+  setPreloadingCallback (cb) {
+    this.preloadingCallback = cb
   },
 
   loadAssets () {
@@ -72,8 +77,11 @@ export default {
           // console.log(blob)
 
           // Update progress bar
-          console.log('cachedAsset', {'current': counter, 'total': array.length})
           counter++
+          if (this.preloadingCallback && counter < array.length) {
+            this.preloadingCallback({'current': counter, 'total': array.length})
+          }
+          // console.log('cachedAsset', {'current': counter, 'total': array.length})
 
           if (name.indexOf('scripts') >= 0) {
             result[name] = item[1]

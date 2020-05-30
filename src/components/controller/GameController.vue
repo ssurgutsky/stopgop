@@ -52,11 +52,21 @@ export default {
       this.loadPurchasedItems()
 
       this.mainView.showPreloading()
+      this.onPreloadingUpdate()
 
+      CacheController.setPreloadingCallback(this.onPreloadingUpdate)
       CacheController.loadAssets().then(res => {
         console.log('cachedData:', CacheController.gameAssets)
         this.assetsCached()
       })
+    },
+
+    onPreloadingUpdate (obj) {
+      let text = 'Loading...'
+      if (obj) {
+        text = text + obj.current + '/' + obj.total
+      }
+      this.mainView.setQuestionText(text)
     },
 
     assetsCached () {
