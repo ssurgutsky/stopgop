@@ -53,6 +53,7 @@ export default {
 
       this.mainView.showPreloading()
       this.onPreloadingUpdate()
+      this.mainView.showImages('Intro.jpg')
 
       CacheController.setPreloadingCallback(this.onPreloadingUpdate)
       CacheController.loadAssets().then(res => {
