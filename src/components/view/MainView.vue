@@ -154,6 +154,10 @@ export default {
       this.$emit('timeExpired')
     },
 
+    updateTimerViewPercent (current, total) {
+      this.$refs.timerView.updatePercent(current, total)
+    },
+
     restartGame () {
       this.$emit('restartGame')
     },

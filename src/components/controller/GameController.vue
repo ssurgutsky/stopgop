@@ -65,6 +65,7 @@ export default {
       let text = 'Loading...'
       if (obj) {
         text = text + obj.current + '/' + obj.total
+        this.mainView.updateTimerViewPercent(obj.current, obj.total)
       }
       this.mainView.setQuestionText(text)
     },
