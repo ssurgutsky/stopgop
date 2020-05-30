@@ -1,4 +1,5 @@
 /* eslint no-eval: 0 */
+import CacheController from '@/components/controller/CacheController.js'
 export default {
   ALL_TAGS: [
     'LABEL',
@@ -211,7 +212,7 @@ export default {
     return JSON.parse(JSON.stringify(obj))
   },
 
-  evalString (___str___, gameScriptsDictionary) {
+  evalString (___str___) {
     let result = ___str___
 
     let arr = []
@@ -261,7 +262,9 @@ export default {
             .replace(new RegExp(SCRIPT_EXTENSION, 'i'), '')
             .replace(SCRIPT_SUFFIX, '')
           //          console.log('SCRIPT NAME:', scriptName)
-          jsCode = gameScriptsDictionary[scriptName]
+          let text = CacheController.getAssetBlobByName(CacheController.CATEGORY_SCRIPTS, scriptName)
+          // console.log('=============', text.default)
+          jsCode = text.default
           if (!jsCode) {
             console.log('Script not found!', scriptName)
           }
@@ -269,6 +272,8 @@ export default {
         // console.log(jsCode)
 
         let jsCodeResult = eval(jsCode)
+
+        // console.log('jsCodeResult', jsCodeResult)
 
         result = result + jsCodeResult
         lastEnd = end + 1

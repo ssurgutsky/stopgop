@@ -44,17 +44,17 @@ export default {
     this.prepareData()
   },
   computed: {
-    gameScriptsDictionary () {
-      const requireContext = require.context('@/assets/scripts', false, /\.(txt|qsp)(\?.*)?$/)
-      let result = requireContext.keys().map(file =>
-        [file.replace(/(^.\/)|(\.(txt|qsp)(\?.*)?$)/g, ''), requireContext(file)]
-      )
-        .reduce((scripts, [name, script]) => {
-          scripts[name] = script.default || script
-          return scripts
-        }, {})
-      return result
-    }
+  //   gameScriptsDictionary () {
+  //     const requireContext = require.context('@/assets/scripts', false, /\.(txt|qsp)(\?.*)?$/)
+  //     let result = requireContext.keys().map(file =>
+  //       [file.replace(/(^.\/)|(\.(txt|qsp)(\?.*)?$)/g, ''), requireContext(file)]
+  //     )
+  //       .reduce((scripts, [name, script]) => {
+  //         scripts[name] = script.default || script
+  //         return scripts
+  //       }, {})
+  //     return result
+  //   }
   },
   methods: {
     prepareData () {
@@ -63,8 +63,6 @@ export default {
 
       // console.log('this.$debug', this.$debug)
       if (this.$debug) {
-        // console.log('gameScriptsDictionary:', this.gameScriptsDictionary)
-
         commonUtils.runTests()
         this.runTests()
 
@@ -505,7 +503,7 @@ export default {
     },
 
     evalString (str) {
-      return commonUtils.evalString.call(this.gameData, str, this.gameScriptsDictionary)
+      return commonUtils.evalString.call(this.gameData, str)
     },
 
     setGameDataVarValue (varName, varValue) {

@@ -2,6 +2,7 @@ export default {
   CATEGORY_VIDEO: 'video',
   CATEGORY_AUDIO: 'audio',
   CATEGORY_IMAGES: 'images',
+  CATEGORY_SCRIPTS: 'scripts',
   gameAssets: {},
 
   getAssetBlobByName (category, name) {
@@ -19,15 +20,22 @@ export default {
         break
       case this.CATEGORY_IMAGES:
         break
+      case this.CATEGORY_SCRIPTS:
+        if (assetName.indexOf('.qsp') < 0) {
+          assetName = name + '.qsp'
+        }
+        break
     }
-    return this.gameAssets[category + '/' + assetName]
+    let path = category + '/' + assetName
+    console.log(path)
+    return this.gameAssets[path]
   },
 
   loadAssets () {
     return new Promise((resolve, reject) => {
       this.loadGameAssetsDictionary()
         .then(res => {
-          console.log('gameVideosDictionary:', res)
+          // console.log('gameAssets:', res)
           this.gameAssets = res
           resolve(res)
         })
@@ -38,7 +46,7 @@ export default {
   },
 
   async loadGameAssetsDictionary () {
-    const requireContext = require.context('@/assets/', true, /\.(mp3|mp4|jpg|png)(\?.*)?$/)
+    const requireContext = require.context('@/assets/', true, /\.(mp3|mp4|jpg|png|qsp|json)(\?.*)?$/)
     let arr = requireContext.keys().map(file =>
       [file.replace('./', ''), requireContext(file)]
     )
@@ -61,7 +69,11 @@ export default {
       await fetch(url).then(response => {
         response.blob().then(blob => {
           // console.log(blob)
-          result[name] = blob
+          if (name.indexOf('scripts') >= 0) {
+            result[name] = item[1]
+          } else {
+            result[name] = blob
+          }
         })
       })
     }

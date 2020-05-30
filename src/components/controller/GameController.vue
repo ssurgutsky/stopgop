@@ -52,7 +52,7 @@ export default {
       this.loadPurchasedItems()
 
       CacheController.loadAssets().then(res => {
-        // console.log('gameVideosDictionary:', res)
+        console.log('cachedData:', CacheController.gameAssets)
         this.assetsCached()
       })
     },
