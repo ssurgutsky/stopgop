@@ -51,6 +51,8 @@ export default {
 
       this.loadPurchasedItems()
 
+      this.mainView.showPreloading()
+
       CacheController.loadAssets().then(res => {
         console.log('cachedData:', CacheController.gameAssets)
         this.assetsCached()
@@ -59,6 +61,7 @@ export default {
 
     assetsCached () {
       // Start the game once all assets have been cached
+      this.mainView.showGameView()
       this.restartGame()
     },
 

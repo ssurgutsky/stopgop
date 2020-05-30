@@ -61,6 +61,7 @@ export default {
 
   async processAssetsArray (array) {
     let result = {}
+    let counter = 0
     for (const item of array) {
       // console.log(item)
       let name = item[0]
@@ -69,6 +70,11 @@ export default {
       await fetch(url).then(response => {
         response.blob().then(blob => {
           // console.log(blob)
+
+          // Update progress bar
+          console.log('cachedAsset', {'current': counter, 'total': array.length})
+          counter++
+
           if (name.indexOf('scripts') >= 0) {
             result[name] = item[1]
           } else {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="styleControls">
     <button @click="onRestartClick">RESTART</button>
     <button :style="styleObjectCheat" @click="onSaveClick">SAVE</button>
     <button :style="styleObjectCheat" @click="onLoadClick">LOAD</button>
@@ -14,6 +14,9 @@
 export default {
   data () {
     return {
+      styleControls: {
+        visibility: 'hidden'
+      },
       // Hide cheat button in release
       styleObjectCheat: {
         display: this.$debug ? 'auto' : 'none'
@@ -23,6 +26,15 @@ export default {
     }
   },
   methods: {
+
+    showControls () {
+      this.styleControls.visibility = 'visible'
+    },
+
+    hideControls () {
+      this.styleControls.visibility = 'hidden'
+    },
+
     onRestartClick () {
       console.log('RESTART')
       this.$emit('restartGame')

@@ -50,6 +50,15 @@ export default {
 
     },
 
+    showPreloading () {
+      this.$refs.answersView.hideAnswers()
+      this.$refs.controlsView.hideControls()
+    },
+
+    showGameView () {
+      this.$refs.controlsView.showControls()
+    },
+
     setQuestionText (txt) {
       this.$refs.questionView.setQuestion(txt)
     },
