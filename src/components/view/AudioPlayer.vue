@@ -76,8 +76,7 @@ export default {
         var url = URL.createObjectURL(blob)
         return url
       }
-      return null
-      // return this.getAudioPathByName(name)
+      return this.getAudioPathByName(name)
     },
 
     getAudioPathByName (name) {

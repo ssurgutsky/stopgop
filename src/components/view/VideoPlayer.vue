@@ -93,8 +93,7 @@ export default {
         var url = URL.createObjectURL(blob)
         return url
       }
-      return null
-      // return this.getVideoPathByName(name)
+      return this.getVideoPathByName(name)
     },
 
     getVideoPathByName (name) {

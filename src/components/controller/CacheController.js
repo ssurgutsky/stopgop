@@ -34,7 +34,7 @@ export default {
         break
     }
     let path = category + '/' + assetName
-    console.log(path)
+    // console.log(path)
     return this.gameAssets[path]
   },
 
@@ -78,7 +78,8 @@ export default {
       let name = item[0]
       let url = require('@/assets/' + name)
       // console.log(url)
-      await fetch(url).then(response => {
+      await this.fetchLocal(url).then(response => {
+        // console.log(response)
         response.blob().then(blob => {
           // console.log(blob)
 
@@ -98,5 +99,20 @@ export default {
       })
     }
     return result
+  },
+
+  fetchLocal (url) {
+    return new Promise(function (resolve, reject) {
+      var xhr = new XMLHttpRequest()
+      xhr.responseType = 'blob'
+      xhr.onload = function () {
+        resolve(new Response(xhr.response, {status: xhr.status}))
+      }
+      xhr.onerror = function () {
+        reject(new TypeError('Local request failed'))
+      }
+      xhr.open('GET', url)
+      xhr.send(null)
+    })
   }
 }
