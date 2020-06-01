@@ -77,9 +77,10 @@ export default {
       // console.log(item)
       let name = item[0]
       let url = require('@/assets/' + name)
-      // console.log(url)
+      console.log(url)
+      console.log(counter, name)
       await this.fetchLocal(url).then(response => {
-        // console.log(response)
+        console.log(response)
         response.blob().then(blob => {
           // console.log(blob)
 
