@@ -57,7 +57,7 @@ export default {
 
       CacheController.setPreloadingCallback(this.onPreloadingUpdate)
       CacheController.loadAssets().then(res => {
-        console.log('cachedData:', CacheController.gameAssets)
+        // console.log('cachedData:', CacheController.gameAssets)
         this.assetsCached()
       })
     },
@@ -75,7 +75,7 @@ export default {
       // Start the game once all assets have been cached
       this.mainView.showGameView()
       let jsonObj = CacheController.getAssetBlobByName(CacheController.CATEGORY_DATA, 'scenario.json')
-      this.gameModel.scenario = jsonObj
+      this.gameModel.scenario = JSON.parse(jsonObj)
       // console.log('========', this.gameModel.scenario)
       this.gameModel.prepareData()
       this.restartGame()

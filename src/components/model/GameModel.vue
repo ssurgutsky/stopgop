@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     prepareData () {
-      console.log('scenario', this.scenario)
+      // console.log('scenario', this.scenario)
       this.createMarksDictionary(this.scenario)
       // console.log(this.marksDictionary)
 

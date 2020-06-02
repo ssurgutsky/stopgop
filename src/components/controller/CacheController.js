@@ -77,10 +77,10 @@ export default {
       // console.log(item)
       let name = item[0]
       let url = require('@/assets/' + name)
-      console.log(url)
-      console.log(counter, name)
+      // console.log(url)
+      // console.log(counter, name)
       await this.fetchLocal(url).then(response => {
-        console.log(response)
+        // console.log(response)
         response.blob().then(blob => {
           // console.log(blob)
 
@@ -92,7 +92,17 @@ export default {
           // console.log('cachedAsset', {'current': counter, 'total': array.length})
 
           if (name.indexOf('scripts') >= 0 || name.indexOf('scenario') >= 0) {
-            result[name] = item[1]
+            const reader = new FileReader()
+
+            // This fires after the blob has been read/loaded.
+            reader.addEventListener('loadend', (e) => {
+              const text = e.srcElement.result
+              // console.log(text)
+              result[name] = text
+            })
+
+            // Start reading the blob as text.
+            reader.readAsText(blob)
           } else {
             result[name] = blob
           }
@@ -102,7 +112,7 @@ export default {
     return result
   },
 
-  fetchLocal (url) {
+  fetchLocal (url, isBlob) {
     return new Promise(function (resolve, reject) {
       var xhr = new XMLHttpRequest()
       xhr.responseType = 'blob'
