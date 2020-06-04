@@ -261,10 +261,11 @@ export default {
             .replace(SCRIPT_PREFIX, '')
             .replace(new RegExp(SCRIPT_EXTENSION, 'i'), '')
             .replace(SCRIPT_SUFFIX, '')
+          scriptName = scriptName + '.qsp'
           //          console.log('SCRIPT NAME:', scriptName)
           let text = CacheController.getAssetBlobByName(CacheController.CATEGORY_SCRIPTS, scriptName)
-          // console.log('=============', text.default)
-          jsCode = text.default
+          // console.log('=============', text)
+          jsCode = text
           if (!jsCode) {
             console.log('Script not found!', scriptName)
           }

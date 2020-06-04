@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.kri-games.sg" version="1.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Sim-Gop</name>
+<widget id="com.skystairgames.sg" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>StopGop</name>
     <description>
-        Simulator Gopa
+        StopGop
     </description>
-    <author email="krigamess@gmail.com" href="http://kri-games.ru">
-        Kristina Games Team
+    <author email="skystairgames@gmail.com" href="http://skystairgames.ru">
+        Sky Stair Games Team
     </author>
     <content src="dist/index.html" />
     <preference name="orientation" value="default" />

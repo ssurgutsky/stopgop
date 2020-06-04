@@ -76,9 +76,14 @@ export default {
     for (const item of array) {
       // console.log(item)
       let name = item[0]
+
+      // For mobile version
       let url = require('@/assets/' + name)
+
+      // For html version
+      // url = 'https://api.github.com/users/ssurgutsky/sg2/assets/' + name
       // console.log(url)
-      // console.log(counter, name)
+      // console.log(counter, url)
       await this.fetchLocal(url).then(response => {
         // console.log(response)
         response.blob().then(blob => {
@@ -123,6 +128,8 @@ export default {
         reject(new TypeError('Local request failed'))
       }
       xhr.open('GET', url)
+      xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
+      xhr.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
       xhr.send(null)
     })
   }
