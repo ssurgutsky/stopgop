@@ -50,10 +50,9 @@ export default {
   getImageSrc (name) {
     // return this.getImagePathByName(name)
 
-    let blob = CacheController.getAssetBlobByName(CacheController.CATEGORY_IMAGES, name)
-    if (blob) {
-      var url = URL.createObjectURL(blob)
-      return url
+    let asset = CacheController.getAssetByName(CacheController.CATEGORY_IMAGES, name)
+    if (asset) {
+      return asset
     }
     return this.getImagePathByName(name)
   },

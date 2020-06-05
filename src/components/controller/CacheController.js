@@ -7,7 +7,7 @@ export default {
   CATEGORY_DATA: 'data',
   gameAssets: {},
 
-  getAssetBlobByName (category, name) {
+  getAssetByName (category, name) {
     let assetName = name
     switch (category) {
       case this.CATEGORY_VIDEO:
@@ -109,6 +109,17 @@ export default {
             // Start reading the blob as text.
             reader.readAsText(blob)
           } else {
+            const reader = new FileReader()
+
+            // This fires after the blob has been read/loaded.
+            reader.addEventListener('loadend', (e) => {
+              const media = e.srcElement.result
+              // console.log(media)
+              result[name] = media
+            })
+
+            // Start reading the blob as text.
+            reader.readAsDataURL(blob)
             result[name] = blob
           }
         })

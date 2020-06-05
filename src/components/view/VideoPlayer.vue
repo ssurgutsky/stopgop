@@ -88,10 +88,9 @@ export default {
     },
 
     getVideoSrc (name) {
-      let blob = CacheController.getAssetBlobByName(CacheController.CATEGORY_VIDEO, name)
-      if (blob) {
-        var url = URL.createObjectURL(blob)
-        return url
+      let asset = CacheController.getAssetByName(CacheController.CATEGORY_VIDEO, name)
+      if (asset) {
+        return asset
       }
       return this.getVideoPathByName(name)
     },

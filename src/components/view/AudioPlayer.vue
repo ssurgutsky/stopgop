@@ -71,10 +71,9 @@ export default {
     },
 
     getAudioSrc (name) {
-      let blob = CacheController.getAssetBlobByName(CacheController.CATEGORY_AUDIO, name)
-      if (blob) {
-        var url = URL.createObjectURL(blob)
-        return url
+      let asset = CacheController.getAssetByName(CacheController.CATEGORY_AUDIO, name)
+      if (asset) {
+        return asset
       }
       return this.getAudioPathByName(name)
     },
