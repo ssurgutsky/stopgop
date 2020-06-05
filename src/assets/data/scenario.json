@@ -1024,7 +1024,7 @@
                                       "node": [
                                         {
                                           "_mark": "mark_2czjpaenu1x9s27dovb5",
-                                          "_content": "[LABEL ][GOTO INTRO]"
+                                          "_content": "[LABEL ][GOTO START]"
                                         }
                                       ],
                                       "_mark": "",
@@ -1059,7 +1059,7 @@
               "_content": "[LABEL ][GOTO donate]"
             }
           ],
-          "_mark": "INTRO",
+          "_mark": "START",
           "_content": "[LABEL Симулятор общения с гопником.{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
         }
       ]

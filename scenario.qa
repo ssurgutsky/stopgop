@@ -1,4 +1,4 @@
-[INTRO]Симулятор общения с гопником.[BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]{this.lang='ru';''}{script initSystem}
+[START]Симулятор общения с гопником.[BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]{this.lang='ru';''}{script initSystem}
 	НАЧАТЬ ИГРУ / START GAME
 		[mark_1lmn36h9rk20b158p6os][BGNDVIDEO Intro.flv][ANSWERTIME 5.7][TIMEEXPIRED GAME_SAVEPOINT][AMBIENT AmbientStreet]Где-то в Сибири...
 			Пропустить заставку.
@@ -192,5 +192,5 @@
 					[donate]Достать лопатник.
 						[mark_v2r3fay37ksl69b2u4a0][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
 							
-								[mark_2czjpaenu1x9s27dovb5][GOTO INTRO]
+								[mark_2czjpaenu1x9s27dovb5][GOTO START]
 	[GOTO donate]
