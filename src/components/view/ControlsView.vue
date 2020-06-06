@@ -22,7 +22,7 @@ export default {
         display: this.$debug ? 'auto' : 'none'
       },
       // Can buy this cheat to enable button
-      isCheatPurchased: false
+      isCheatPurchased: this.$debug
     }
   },
   methods: {
