@@ -55,16 +55,22 @@ export default {
       this.onPreloadingUpdate()
       this.mainView.showImages('logo.jpg')
 
+      CacheController.ENABLED = true
       CacheController.setPreloadingCallback(this.onPreloadingUpdate)
       CacheController.loadAssets().then(res => {
         // console.log('cachedData:', CacheController.gameAssets)
-        this.assetsCached()
+        setTimeout(() => {
+          this.assetsCached()
+        }, 1000)
       })
     },
 
     onPreloadingUpdate (obj) {
       let text = 'Loading...'
-      if (obj) {
+      if (!obj) return
+      if (obj.current === obj.total) {
+        text = text + ' done!'
+      } else {
         text = text + obj.current + '/' + obj.total
         this.mainView.updateTimerViewPercent(obj.current, obj.total)
       }

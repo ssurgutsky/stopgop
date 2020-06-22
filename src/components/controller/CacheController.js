@@ -1,4 +1,5 @@
 export default {
+  ENABLED: false,
   preloadingCallback: null,
   CATEGORY_VIDEO: 'video',
   CATEGORY_AUDIO: 'audio',
@@ -57,7 +58,8 @@ export default {
   },
 
   async loadGameAssetsDictionary () {
-    const requireContext = require.context('@/assets/', true, /\.(mp3|mp4|jpg|png|qsp|json)(\?.*)?$/)
+    const requireContext = this.ENABLED ? require.context('@/assets/', true, /\.(mp3|mp4|jpg|png|qsp|json)(\?.*)?$/)
+      : require.context('@/assets/', true, /\.(qsp|json)(\?.*)?$/)
     let arr = requireContext.keys().map(file =>
       [file.replace('./', ''), requireContext(file)]
     )
@@ -81,7 +83,7 @@ export default {
       let url = require('@/assets/' + name)
 
       // For html version
-      // url = 'https://api.github.com/users/ssurgutsky/sg2/assets/' + name
+      // url = 'https://ssurgutsky.github.io/t/' + name
       // console.log(url)
       // console.log(counter, url)
       await this.fetchLocal(url).then(response => {
@@ -90,10 +92,6 @@ export default {
           // console.log(blob)
 
           // Update progress bar
-          counter++
-          if (this.preloadingCallback && counter < array.length) {
-            this.preloadingCallback({'current': counter, 'total': array.length})
-          }
           // console.log('cachedAsset', {'current': counter, 'total': array.length})
 
           if (name.indexOf('scripts') >= 0 || name.indexOf('scenario') >= 0) {
@@ -104,6 +102,7 @@ export default {
               const text = e.srcElement.result
               // console.log(text)
               result[name] = text
+              counter = this.incCounter(counter, array.length)
             })
 
             // Start reading the blob as text.
@@ -116,6 +115,7 @@ export default {
               const media = e.srcElement.result
               // console.log(media)
               result[name] = media
+              counter = this.incCounter(counter, array.length)
             })
 
             // Start reading the blob as text.
@@ -126,6 +126,14 @@ export default {
       })
     }
     return result
+  },
+
+  incCounter (counter, total) {
+    counter++
+    if (this.preloadingCallback) {
+      this.preloadingCallback({'current': counter, 'total': total})
+    }
+    return counter
   },
 
   fetchLocal (url, isBlob) {
