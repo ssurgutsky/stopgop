@@ -1,4 +1,5 @@
 export default {
+  IndexedDVVersion: 13,
   ENABLED: false,
   preloadingCallback: null,
   CATEGORY_VIDEO: 'video',
@@ -45,15 +46,111 @@ export default {
 
   loadAssets () {
     return new Promise((resolve, reject) => {
-      this.loadGameAssetsDictionary()
+      this.loadAssetsFromIndexedDB()
         .then(res => {
-          // console.log('gameAssets:', res)
           this.gameAssets = res
           resolve(res)
         })
         .catch(reason => {
-          reject(reason)
+          console.log('No gameAssets in IndexedDb, loading for new')
+          this.loadGameAssetsDictionary()
+            .then(res => {
+              // console.log('gameAssets:', res)
+              this.gameAssets = res
+              this.saveAssetsToIndexedDB()
+              resolve(res)
+            })
+            .catch(reason => {
+              reject(reason)
+            })
         })
+    })
+  },
+
+  loadAssetsFromIndexedDB () {
+    return new Promise((resolve, reject) => {
+      if (('indexedDB' in window)) {
+        let openRequest = indexedDB.open('store', this.IndexedDVVersion)
+        // console.log(openRequest)
+        openRequest.onupgradeneeded = (event) => {
+          let db = event.target.result
+          // console.log('HERE!', db)
+          if (!db.objectStoreNames.contains('gameAssets')) {
+            db.createObjectStore('gameAssets', {keyPath: 'id', autoIncrement: false})
+            // console.log('HERE!', objectStore)
+          }
+        }
+        openRequest.onsuccess = (event) => {
+          let db = event.target.result
+          // console.log('onsuccess', db)
+          let tx = db.transaction(['gameAssets'], 'readwrite')
+          // console.log(tx)
+          let store = tx.objectStore('gameAssets')
+          // console.log(store)
+
+          let req = store.get(this.IndexedDVVersion)
+          req.onsuccess = (event) => {
+            let tmp = event.target.result
+            if (tmp) {
+              console.log('TAKEN FROM IndexedDB! v.' + this.IndexedDVVersion, tmp)
+              resolve(tmp[0])
+            } else {
+              reject(new TypeError('No such record in IndexedDB!'))
+            }
+          }
+          req.onerror = (event) => {
+            reject(new TypeError('No such record in IndexedDB!'))
+          }
+
+          tx.oncomplete = () => {
+            // console.log('tx complete')
+          }
+          tx.onerror = (event) => {
+            reject(new TypeError('Error reading IndexedDB!'))
+          }
+        }
+      } else {
+        console.log('This browser doesnt support IndexedDB')
+        reject(new TypeError('This browser doesnt support IndexedDB'))
+      }
+    })
+  },
+
+  saveAssetsToIndexedDB () {
+    return new Promise((resolve, reject) => {
+      if (('indexedDB' in window)) {
+        let openRequest = indexedDB.open('store', this.IndexedDVVersion)
+        // console.log(openRequest)
+        openRequest.onupgradeneeded = (event) => {
+          let db = event.target.result
+          // console.log('HERE!', db)
+          if (!db.objectStoreNames.contains('gameAssets')) {
+            db.createObjectStore('gameAssets', {keyPath: 'id', autoIncrement: false})
+            // console.log('HERE!', objectStore)
+          }
+        }
+        openRequest.onsuccess = (event) => {
+          let db = event.target.result
+          // console.log('onsuccess', db)
+          let tx = db.transaction(['gameAssets'], 'readwrite')
+          // console.log(tx)
+          let store = tx.objectStore('gameAssets')
+          // console.log(store)
+
+          store.put([this.gameAssets])
+
+          tx.oncomplete = () => {
+            console.log('Saved loaded assets to IndexedDB v.' + this.IndexedDVVersion)
+            resolve(true)
+          }
+          tx.onerror = (event) => {
+            reject(new TypeError('Error saving loaded assets to IndexedDB!'))
+          }
+        }
+      } else {
+        console.log('This browser doesnt support IndexedDB')
+        reject(new TypeError('This browser doesnt support IndexedDB'))
+      }
     })
   },
 
@@ -83,7 +180,7 @@ export default {
       let url = require('@/assets/' + name)
 
       // For html version
-      // url = 'https://ssurgutsky.github.io/t/' + name
+      // url = 'https://github.com/ssurgutsky/t/tree/master/static/' + name
       // console.log(url)
       // console.log(counter, url)
       await this.fetchLocal(url).then(response => {

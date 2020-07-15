@@ -12,7 +12,8 @@
       @cheatSkip="cheatSkip"
       @cheatBack="cheatBack"
       @cheatEpisode="cheatEpisode"
-      ref="mainView">
+      ref="mainView"
+    >
     </MainView>
     <GameModel ref="gameModel"></GameModel>
   </div>
