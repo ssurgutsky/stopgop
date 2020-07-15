@@ -58,6 +58,7 @@ export default {
 
       CacheController.ENABLED = true
       CacheController.setPreloadingCallback(this.onPreloadingUpdate)
+      this.onPreloadingUpdate({current: 0, total: 0})
       CacheController.loadAssets().then(res => {
         // console.log('cachedData:', CacheController.gameAssets)
         setTimeout(() => {
