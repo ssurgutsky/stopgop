@@ -1,5 +1,5 @@
 export default {
-  IndexedDVVersion: 13,
+  IndexedDVVersion: 16,
   ENABLED: false,
   preloadingCallback: null,
   CATEGORY_VIDEO: 'video',
@@ -75,10 +75,11 @@ export default {
         openRequest.onupgradeneeded = (event) => {
           let db = event.target.result
           // console.log('HERE!', db)
-          if (!db.objectStoreNames.contains('gameAssets')) {
-            db.createObjectStore('gameAssets', {keyPath: 'id', autoIncrement: false})
-            // console.log('HERE!', objectStore)
+          if (db.objectStoreNames.contains('gameAssets')) {
+            db.deleteObjectStore('gameAssets')
           }
+          db.createObjectStore('gameAssets', {keyPath: 'id', autoIncrement: false})
+          // NOTE: next will be openRequest.onsuccess!!!
         }
         openRequest.onsuccess = (event) => {
           let db = event.target.result
@@ -88,18 +89,18 @@ export default {
           let store = tx.objectStore('gameAssets')
           // console.log(store)
 
-          let req = store.get(this.IndexedDVVersion)
+          let req = store.get(1)
           req.onsuccess = (event) => {
             let tmp = event.target.result
-            if (tmp) {
-              console.log('TAKEN FROM IndexedDB! v.' + this.IndexedDVVersion, tmp)
-              resolve(tmp[0])
+            if (tmp && tmp.value) {
+              console.log('Taken gameAssets from IndexedDB v.' + this.IndexedDVVersion, tmp)
+              resolve(tmp.value)
             } else {
-              reject(new TypeError('No such record in IndexedDB!'))
+              reject(new TypeError('No gameAssets record in IndexedDB!'))
             }
           }
           req.onerror = (event) => {
-            reject(new TypeError('No such record in IndexedDB!'))
+            reject(new TypeError('No gameAssets record in IndexedDB!'))
           }
 
           tx.oncomplete = () => {
@@ -127,6 +128,7 @@ export default {
           if (!db.objectStoreNames.contains('gameAssets')) {
             db.createObjectStore('gameAssets', {keyPath: 'id', autoIncrement: false})
             // console.log('HERE!', objectStore)
+            // NOTE: next will be openRequest.onsuccess!!!
           }
         }
         openRequest.onsuccess = (event) => {
@@ -135,16 +137,18 @@ export default {
           let tx = db.transaction(['gameAssets'], 'readwrite')
           // console.log(tx)
           let store = tx.objectStore('gameAssets')
-          // console.log(store)
+          console.log(store)
 
-          store.put([this.gameAssets])
+          store.put({id: 1, value: this.gameAssets})
+          console.log('Saving loaded assets to IndexedDB v.' + this.IndexedDVVersion)
 
           tx.oncomplete = () => {
-            console.log('Saved loaded assets to IndexedDB v.' + this.IndexedDVVersion)
+            console.log('Save success')
             resolve(true)
           }
           tx.onerror = (event) => {
-            reject(new TypeError('Error saving loaded assets to IndexedDB!'))
+            console.log('Save error!')
+            reject(new TypeError('Error saving loaded assets to IndexedDB! v.' + this.IndexedDVVersion))
           }
         }
       } else {
