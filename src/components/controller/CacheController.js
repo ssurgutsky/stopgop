@@ -1,5 +1,6 @@
 export default {
-  IndexedDVVersion: 16,
+  IndexedDBVersion: 1,
+  IndexedDBStoreName: 'store_sg',
   ENABLED: false,
   preloadingCallback: null,
   CATEGORY_VIDEO: 'video',
@@ -70,7 +71,7 @@ export default {
   loadAssetsFromIndexedDB () {
     return new Promise((resolve, reject) => {
       if (('indexedDB' in window)) {
-        let openRequest = indexedDB.open('store', this.IndexedDVVersion)
+        let openRequest = indexedDB.open(this.IndexedDBStoreName, this.IndexedDBVersion)
         // console.log(openRequest)
         openRequest.onupgradeneeded = (event) => {
           let db = event.target.result
@@ -93,7 +94,7 @@ export default {
           req.onsuccess = (event) => {
             let tmp = event.target.result
             if (tmp && tmp.value) {
-              console.log('Taken gameAssets from IndexedDB v.' + this.IndexedDVVersion, tmp)
+              console.log('Taken gameAssets from IndexedDB v.' + this.IndexedDBVersion, tmp)
               resolve(tmp.value)
             } else {
               reject(new TypeError('No gameAssets record in IndexedDB!'))
@@ -120,7 +121,7 @@ export default {
   saveAssetsToIndexedDB () {
     return new Promise((resolve, reject) => {
       if (('indexedDB' in window)) {
-        let openRequest = indexedDB.open('store', this.IndexedDVVersion)
+        let openRequest = indexedDB.open(this.IndexedDBStoreName, this.IndexedDBVersion)
         // console.log(openRequest)
         openRequest.onupgradeneeded = (event) => {
           let db = event.target.result
@@ -140,7 +141,7 @@ export default {
           console.log(store)
 
           store.put({id: 1, value: this.gameAssets})
-          console.log('Saving loaded assets to IndexedDB v.' + this.IndexedDVVersion)
+          console.log('Saving loaded assets to IndexedDB v.' + this.IndexedDBVersion)
 
           tx.oncomplete = () => {
             console.log('Save success')
@@ -148,7 +149,7 @@ export default {
           }
           tx.onerror = (event) => {
             console.log('Save error!')
-            reject(new TypeError('Error saving loaded assets to IndexedDB! v.' + this.IndexedDVVersion))
+            reject(new TypeError('Error saving loaded assets to IndexedDB! v.' + this.IndexedDBVersion))
           }
         }
       } else {
