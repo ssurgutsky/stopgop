@@ -1,10 +1,9 @@
 <template>
   <div></div>
 </template>
-
 <script>
-
 import commonUtils from '@/components/utils/CommonUtils.js'
+import Settings from '@/components/Settings.js'
 
 export default {
   data: () => ({
@@ -78,13 +77,13 @@ export default {
       // window.store.verbosity = window.store.DEBUG
 
       window.store.register({
-        id: 'com.kri_games.alco.coin1',
-        alias: 'coin1',
+        id: Settings.GP_PRODUCT1_NAME,
+        alias: 'coin',
         type: window.store.CONSUMABLE
       })
 
       window.store.register({
-        id: 'com.kri_games.alco.episodes',
+        id: Settings.GP_PRODUCT2_NAME,
         alias: 'episodes',
         type: window.store.CONSUMABLE
       })

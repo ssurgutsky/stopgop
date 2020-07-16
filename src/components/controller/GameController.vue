@@ -56,7 +56,6 @@ export default {
       this.onPreloadingUpdate()
       this.mainView.showImages('logo.jpg')
 
-      CacheController.ENABLED = true
       CacheController.setPreloadingCallback(this.onPreloadingUpdate)
       this.onPreloadingUpdate()
       CacheController.loadAssets().then(res => {
