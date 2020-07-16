@@ -58,7 +58,7 @@ export default {
 
       CacheController.ENABLED = true
       CacheController.setPreloadingCallback(this.onPreloadingUpdate)
-      this.onPreloadingUpdate({current: 0, total: 0})
+      this.onPreloadingUpdate()
       CacheController.loadAssets().then(res => {
         // console.log('cachedData:', CacheController.gameAssets)
         setTimeout(() => {
@@ -69,12 +69,13 @@ export default {
 
     onPreloadingUpdate (obj) {
       let text = 'Loading...'
-      if (!obj) return
-      if (obj.current === obj.total) {
-        text = text + ' done!'
-      } else {
-        text = text + obj.current + '/' + obj.total
-        this.mainView.updateTimerViewPercent(obj.current, obj.total)
+      if (obj) {
+        if (obj.current === obj.total) {
+          text = text + ' done!'
+        } else {
+          text = text + obj.current + '/' + obj.total
+          this.mainView.updateTimerViewPercent(obj.current, obj.total)
+        }
       }
       this.mainView.setQuestionText(text)
     },
