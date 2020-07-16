@@ -51,12 +51,13 @@ export default {
           resolve(res)
         })
         .catch(reason => {
-          console.log('No gameAssets in IndexedDb, loading for new')
           this.loadGameAssetsDictionary()
             .then(res => {
               // console.log('gameAssets:', res)
               this.gameAssets = res
-              this.saveAssetsToIndexedDB()
+              if (Settings.CACHE_ENABLED) {
+                this.saveAssetsToIndexedDB()
+              }
               resolve(res)
             })
             .catch(reason => {
@@ -68,6 +69,10 @@ export default {
 
   loadAssetsFromIndexedDB () {
     return new Promise((resolve, reject) => {
+      if (!Settings.CACHE_ENABLED) {
+        reject(new TypeError('loadAssetsFromIndexedDB: CACHE_ENABLED = false'))
+        return
+      }
       if (('indexedDB' in window)) {
         let openRequest = indexedDB.open(Settings.INDEXEDDB_STORE_NAME, Settings.INDEXEDDB_VERSION)
         // console.log(openRequest)
@@ -98,6 +103,7 @@ export default {
               reject(new TypeError('No gameAssets record in IndexedDB!'))
             }
           }
+
           req.onerror = (event) => {
             reject(new TypeError('No gameAssets record in IndexedDB!'))
           }
@@ -118,6 +124,10 @@ export default {
 
   saveAssetsToIndexedDB () {
     return new Promise((resolve, reject) => {
+      if (!Settings.CACHE_ENABLED) {
+        reject(new TypeError('saveAssetsToIndexedDB: CACHE_ENABLED = false'))
+        return
+      }
       if (('indexedDB' in window)) {
         let openRequest = indexedDB.open(Settings.INDEXEDDB_STORE_NAME, Settings.INDEXEDDB_VERSION)
         // console.log(openRequest)
@@ -136,7 +146,7 @@ export default {
           let tx = db.transaction(['gameAssets'], 'readwrite')
           // console.log(tx)
           let store = tx.objectStore('gameAssets')
-          console.log(store)
+          // console.log(store)
 
           store.put({id: 1, value: this.gameAssets})
           console.log('Saving loaded assets to IndexedDB v.' + Settings.INDEXEDDB_VERSION)
