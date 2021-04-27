@@ -1,4 +1,4 @@
-[START]Симулятор общения с гопником.[BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]{this.lang='ru';''}{script initSystem}
+[START]Симулятор общения с гопником.\nv1.21[BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]{this.lang='ru';''}{script initSystem}
 	НАЧАТЬ ИГРУ / START GAME
 		[mark_1lmn36h9rk20b158p6os][BGNDVIDEO Intro.flv][ANSWERTIME 5.7][TIMEEXPIRED GAME_SAVEPOINT][AMBIENT AmbientStreet]Где-то в Сибири...
 			Пропустить заставку.
@@ -44,6 +44,7 @@
 																																											
 																																												[mark_a64n324y0635c1ea68a8]Главный финал! Ты только что протряс гопа![BGNDVIDEO Titles][MUSIC none]
 																																													[GOTO donate]
+																																													[GOTO ddonate]
 																																									[А_что_ты_мне_сделаешь]А что ты мне сделаешь?
 																																										[mark_olzk5yoo5q475wd7leb0]Щас на перо насажу, кровью кудахтать будешь, гнида![ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO {this.lang}/cut_you][VIDEO GopTreatenWithKnife][BGNDVIDEO GopEatsSunflowerSeedsLoop,GopDrinks,GopSmokes]
 																																											[GOTO Ладно_я_пошутил]
@@ -193,4 +194,9 @@
 						[mark_v2r3fay37ksl69b2u4a0][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
 							
 								[mark_2czjpaenu1x9s27dovb5][GOTO START]
+					[ddonate]Закивасить.
+						[mark_t319971dwu2865mjn7qo][NAVIGATEURL https://qiwi.com/n/SERJIOS]
+							
+								[mark_8r456ve83222mbv60b0m][GOTO START]
 	[GOTO donate]
+	[GOTO ddonate]

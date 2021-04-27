@@ -95,6 +95,10 @@
                                                                                                                                                                                             {
                                                                                                                                                                                               "_mark": "",
                                                                                                                                                                                               "_content": "[LABEL ][GOTO donate]"
+                                                                                                                                                                                            },
+                                                                                                                                                                                            {
+                                                                                                                                                                                              "_mark": "",
+                                                                                                                                                                                              "_content": "[LABEL ][GOTO ddonate]"
                                                                                                                                                                                             }
                                                                                                                                                                                           ],
                                                                                                                                                                                           "_mark": "mark_a64n324y0635c1ea68a8",
@@ -1037,6 +1041,28 @@
                               ],
                               "_mark": "donate",
                               "_content": "[LABEL Достать лопатник.]"
+                            },
+                            {
+                              "node": [
+                                {
+                                  "node": [
+                                    {
+                                      "node": [
+                                        {
+                                          "_mark": "mark_8r456ve83222mbv60b0m",
+                                          "_content": "[LABEL ][GOTO START]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL ]"
+                                    }
+                                  ],
+                                  "_mark": "mark_t319971dwu2865mjn7qo",
+                                  "_content": "[LABEL ][NAVIGATEURL https://qiwi.com/n/SERJIOS]"
+                                }
+                              ],
+                              "_mark": "ddonate",
+                              "_content": "[LABEL Закивасить.]"
                             }
                           ],
                           "_mark": "GAME_SAVEPOINT,language_ru",
@@ -1057,10 +1083,14 @@
             {
               "_mark": "",
               "_content": "[LABEL ][GOTO donate]"
+            },
+            {
+              "_mark": "",
+              "_content": "[LABEL ][GOTO ddonate]"
             }
           ],
           "_mark": "START",
-          "_content": "[LABEL Симулятор общения с гопником.{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
+          "_content": "[LABEL Симулятор общения с гопником.\nv1.21{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
         }
       ]
     }
