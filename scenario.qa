@@ -1,4 +1,4 @@
-[START]Симулятор общения с гопником.\nv1.21[BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]{this.lang='ru';''}{script initSystem}
+[START]Симулятор общения с гопником v1.{this.game_version}[BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]{this.lang='ru';''}{script initSystem}
 	НАЧАТЬ ИГРУ / START GAME
 		[mark_1lmn36h9rk20b158p6os][BGNDVIDEO Intro.flv][ANSWERTIME 5.7][TIMEEXPIRED GAME_SAVEPOINT][AMBIENT AmbientStreet]Где-то в Сибири...
 			Пропустить заставку.

@@ -1090,7 +1090,7 @@
             }
           ],
           "_mark": "START",
-          "_content": "[LABEL Симулятор общения с гопником.\nv1.21{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
+          "_content": "[LABEL Симулятор общения с гопником v1.{this.game_version}{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
         }
       ]
     }
