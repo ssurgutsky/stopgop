@@ -1,0 +1,13 @@
+1. Чтобы тестировать покупки надо делать приложение с подписью:
+
+cordova run android --keystore=../keystore_krigames/krigames.keystore --storePassword=Aj109Asd291 --alias=krigames --password=Aj109Asd291
+(т.е. не просто cordova run android)
+
+2. Если покупки зависли, надо очистить кэш Google Play Market:
+
+Мобила -> Настройки -> Приложения -> Google Market - > Память -> Удалить все данные
+!!! Только после этого удалять приложение и устанавливать заново !!!
+
+3. Использовать только cordova=plugin-purchase v10.0.0 и выше. Всегда проверять BILLING_KEY у приложения и в консоле!!!
+
+4. Проверять index.html чтобы было '../cordova.js'
