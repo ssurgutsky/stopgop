@@ -9,7 +9,10 @@
     <audio autoplay ref="musicPlayer" @ended="onMusicEnded">
       <source type="audio/mp3" />
     </audio>
-    <audio autoplay ref="sfxPlayer">
+    <audio autoplay ref="bgndMusicPlayer" @ended="onBgndMusicEnded">
+      <source type="audio/mp3" />
+    </audio>
+    <audio autoplay ref="sfxPlayer" @ended="onSFXEnded">
       <source type="audio/mp3" />
     </audio>
   </div>
@@ -17,6 +20,7 @@
 
 <script>
 import CacheController from '@/components/controller/CacheController.js'
+import Settings from '@/components/Settings.js'
 import { setTimeout } from 'timers'
 
 export default {
@@ -26,10 +30,14 @@ export default {
       audioPlayer: null,
       ambientPlayer: null,
       musicPlayer: null,
+      bgndMusicPlayer: null,
       sfxPlayer: null,
       currentAudioName: '',
+      currentSFXName: '',
+      currentUtterance: null,
       currentAmbientName: '',
       currentMusicName: '',
+      currentBgndMusicName: '',
       silentTimerId: 0,
       loop: false
     }
@@ -44,11 +52,24 @@ export default {
       this.audioPlayer = this.$refs.audioPlayer
       this.ambientPlayer = this.$refs.ambientPlayer
       this.musicPlayer = this.$refs.musicPlayer
+      this.bgndMusicPlayer = this.$refs.bgndMusicPlayer
       this.sfxPlayer = this.$refs.sfxPlayer
     },
 
-    playAudio (name, loop) {
-      console.log(name)
+    playAudio (name, loop, text) {
+      console.log(name, text)
+
+      if (Settings.ENABLE_SPEECH && text && text !== '...') {
+        var voices = speechSynthesis.getVoices()
+        // console.log('voices', voices)
+        this.currentUtterance = new SpeechSynthesisUtterance(text)
+        this.currentUtterance.voice = voices[0]
+        this.currentUtterance.rate = 2
+        this.currentUtterance.onend = this.onAudioEnded
+        // console.log('utterance', this.currentUtterance)
+        speechSynthesis.speak(this.currentUtterance)
+        return
+      }
 
       this.clearSilentTimer()
 
@@ -56,21 +77,29 @@ export default {
 
       if (name.toUpperCase().includes('SILENT_')) {
         let seconds = name.toUpperCase().replace('SILENT_', '')
+        // console.log('SET silentTimerId', this.silentTimerId, seconds)
         this.silentTimerId = setTimeout(this.onAudioEnded, seconds * 1000)
         return
       }
       if (this.musicPlayer.src !== '') {
         this.musicPlayer.volume = 0.05
       }
+      if (this.bgndMusicPlayer.src !== '') {
+        this.bgndMusicPlayer.volume = 0.05
+      }
       this.audioPlayer.loop = loop
       this.audioPlayer.src = this.getAudioSrc(name)
-      this.audioPlayer.pause()
-      setTimeout(() => {
-        this.audioPlayer.play()
-      }, 10)
+      this.audioPlayer.load()
+      // this.audioPlayer.pause()
+      // setTimeout(() => {
+      //   this.audioPlayer.play()
+      // }, 10)
     },
 
     getAudioSrc (name) {
+      if (name.indexOf('http') >= 0) {
+        return name
+      }
       let asset = CacheController.getAssetByName(CacheController.CATEGORY_AUDIO, name)
       if (asset) {
         return asset
@@ -79,26 +108,39 @@ export default {
     },
 
     getAudioPathByName (name) {
-      if (name.indexOf('http') >= 0) {
-        return name + '.mp3'
+      let result = name
+      if (result.indexOf('.mp3') < 0) {
+        result = result + '.mp3'
       }
-      return require('@/assets/audio/' + name + '.mp3')
+      return require('@/assets/audio/' + result)
     },
 
     stopAudio () {
       this.audioPlayer.pause()
+      this.clearSilentTimer()
+
+      // console.log('!!!!!!speechSynthesis', window.speechSynthesis, Settings.ENABLE_SPEECH)
+
+      if (Settings.ENABLE_SPEECH) {
+        speechSynthesis.cancel()
+      }
+
       if (this.musicPlayer.src !== '') {
         this.musicPlayer.volume = 0.4
+      }
+      if (this.bgndMusicPlayer.src !== '') {
+        this.bgndMusicPlayer.volume = 0.4
       }
     },
 
     clearSilentTimer () {
-      clearTimeout(this.silentTimerId)
+      // console.log('CLEAR silentTimerId', this.silentTimerId, this.silentTimerId._id)
+      clearTimeout(this.silentTimerId._id)
       this.silentTimerId = 0
     },
 
     onAudioEnded () {
-      //      console.log('audioEnded', this.currentAudioName)
+      // console.log('audioEnded', this.currentAudioName)
       this.$emit('audioEnded', this.currentAudioName)
     },
 
@@ -118,14 +160,15 @@ export default {
 
       this.ambientPlayer.loop = true
       this.ambientPlayer.src = this.getAudioSrc(name)
-      this.ambientPlayer.pause()
-      setTimeout(() => {
-        this.ambientPlayer.play()
-      }, 10)
+      this.ambientPlayer.load()
+      // this.ambientPlayer.pause()
+      // setTimeout(() => {
+      //   this.ambientPlayer.play()
+      // }, 10)
     },
 
     playMusic (name) {
-      console.log(name)
+      console.log('playMusic', name)
 
       if (name === '') {
         return
@@ -139,10 +182,11 @@ export default {
       }
 
       this.musicPlayer.src = this.getAudioSrc(name)
-      this.musicPlayer.pause()
-      setTimeout(() => {
-        this.musicPlayer.play()
-      }, 10)
+      this.musicPlayer.load()
+      // this.musicPlayer.pause()
+      // setTimeout(() => {
+      //   this.musicPlayer.play()
+      // }, 10)
     },
 
     onMusicEnded () {
@@ -150,13 +194,57 @@ export default {
       this.$emit('musicEnded', this.currentMusicName)
     },
 
+    stopMusic () {
+      this.musicPlayer.pause()
+    },
+
+    playBgndMusic (name) {
+      console.log('playBgndMusic', name)
+
+      if (name === '') {
+        return
+      }
+
+      this.currentBgndMusicName = name
+
+      if (name.toUpperCase() === 'NONE' || name.toUpperCase() === 'OFF') {
+        this.bgndMusicPlayer.src = ''
+        return
+      }
+
+      this.bgndMusicPlayer.src = this.getAudioSrc(name)
+      this.bgndMusicPlayer.load()
+      // this.bgndMusicPlayer.pause()
+      // setTimeout(() => {
+      //   this.bgndMusicPlayer.play()
+      // }, 10)
+    },
+
+    onBgndMusicEnded () {
+      //      console.log('musicEnded', this.currentMusicName)
+      this.$emit('bgndMusicEnded', this.currentBgndMusicName)
+    },
+
+    stopBgndMusic () {
+      this.bgndMusicPlayer.pause()
+    },
+
     playSFX (name) {
       console.log('SFX', name)
+
+      this.currentSFXName = name
+
       this.sfxPlayer.src = this.getAudioSrc(name)
-      this.sfxPlayer.pause()
-      setTimeout(() => {
-        this.sfxPlayer.play()
-      }, 10)
+      this.sfxPlayer.load()
+      // this.sfxPlayer.pause()
+      // setTimeout(() => {
+      //   this.sfxPlayer.play()
+      // }, 10)
+    },
+
+    onSFXEnded () {
+      //      console.log('sfxEnded', this.currentSFXName)
+      this.$emit('sfxEnded', this.currentSFXName)
     },
 
     stopSFX () {

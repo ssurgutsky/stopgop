@@ -95,10 +95,6 @@
                                                                                                                                                                                             {
                                                                                                                                                                                               "_mark": "",
                                                                                                                                                                                               "_content": "[LABEL ][GOTO donate]"
-                                                                                                                                                                                            },
-                                                                                                                                                                                            {
-                                                                                                                                                                                              "_mark": "",
-                                                                                                                                                                                              "_content": "[LABEL ][GOTO ddonate]"
                                                                                                                                                                                             }
                                                                                                                                                                                           ],
                                                                                                                                                                                           "_mark": "mark_a64n324y0635c1ea68a8",
@@ -1027,42 +1023,76 @@
                                     {
                                       "node": [
                                         {
-                                          "_mark": "mark_2czjpaenu1x9s27dovb5",
-                                          "_content": "[LABEL ][GOTO START]"
+                                          "node": [
+                                            {
+                                              "node": [
+                                                {
+                                                  "_mark": "mark_gpz4h2d5q2gj83yqc71b",
+                                                  "_content": "[LABEL ][GOTO START]"
+                                                }
+                                              ],
+                                              "_mark": "",
+                                              "_content": "[LABEL ]"
+                                            }
+                                          ],
+                                          "_mark": "mark_f80u11uv548604r8v3v5",
+                                          "_content": "[LABEL ][NAVIGATEURL https://www.tinkoff.ru/cf/7xIiPBRWF9P]"
                                         }
                                       ],
                                       "_mark": "",
-                                      "_content": "[LABEL ]"
-                                    }
-                                  ],
-                                  "_mark": "mark_v2r3fay37ksl69b2u4a0",
-                                  "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
-                                }
-                              ],
-                              "_mark": "donate",
-                              "_content": "[LABEL Достать лопатник.]"
-                            },
-                            {
-                              "node": [
-                                {
-                                  "node": [
+                                      "_content": "[LABEL Перевод Tinkoff]"
+                                    },
                                     {
                                       "node": [
                                         {
-                                          "_mark": "mark_8r456ve83222mbv60b0m",
-                                          "_content": "[LABEL ][GOTO START]"
+                                          "node": [
+                                            {
+                                              "node": [
+                                                {
+                                                  "_mark": "mark_xw21sf4q2mxo3q0x9b78",
+                                                  "_content": "[LABEL ][GOTO START]"
+                                                }
+                                              ],
+                                              "_mark": "",
+                                              "_content": "[LABEL ]"
+                                            }
+                                          ],
+                                          "_mark": "mark_n4f3t5qf3l1tjoui2c2f",
+                                          "_content": "[LABEL ][NAVIGATEURL https://qiwi.com/n/SERJIOS]"
                                         }
                                       ],
                                       "_mark": "",
-                                      "_content": "[LABEL ]"
+                                      "_content": "[LABEL Перевод Qiwi]"
+                                    },
+                                    {
+                                      "node": [
+                                        {
+                                          "node": [
+                                            {
+                                              "node": [
+                                                {
+                                                  "_mark": "mark_06z79l0n6q345b2ni5q2",
+                                                  "_content": "[LABEL ][GOTO START]"
+                                                }
+                                              ],
+                                              "_mark": "",
+                                              "_content": "[LABEL ]"
+                                            }
+                                          ],
+                                          "_mark": "mark_iz89w1lh9902e1966gt6",
+                                          "_content": "[LABEL ][NAVIGATEURL https://yoomoney.ru/to/41001220674141]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL Перевод YooMoney]"
                                     }
                                   ],
-                                  "_mark": "mark_t319971dwu2865mjn7qo",
-                                  "_content": "[LABEL ][NAVIGATEURL https://qiwi.com/n/SERJIOS]"
+                                  "_mark": "mark_8o716rk6f9gm5w4vo191",
+                                  "_content": "[LABEL Если понравилось, закинь сколько не жалко.][IMAGE donate.png]"
                                 }
                               ],
-                              "_mark": "ddonate",
-                              "_content": "[LABEL Закивасить.]"
+                              "_mark": "donate",
+                              "_content": "[LABEL Donate / Дать денежку]"
                             }
                           ],
                           "_mark": "GAME_SAVEPOINT,language_ru",
@@ -1083,14 +1113,10 @@
             {
               "_mark": "",
               "_content": "[LABEL ][GOTO donate]"
-            },
-            {
-              "_mark": "",
-              "_content": "[LABEL ][GOTO ddonate]"
             }
           ],
           "_mark": "START",
-          "_content": "[LABEL Симулятор общения с гопником v1.{this.game_version}{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
+          "_content": "[LABEL Симулятор общения с гопником\nv1.{this.game_version}{this.lang='ru';''}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
         }
       ]
     }

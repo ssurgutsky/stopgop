@@ -1,11 +1,14 @@
 <template>
   <div ref="mainView" class="main-view">
+    <BgPicturePlayer class="bg-picture-container" ref="bgPicturePlayer"/>
     <VideoPlayer class="video-container" ref="videoPlayer" @videoEnded="processVideoEnded"/>
     <BgndImagePlayer class="bgnd-image-container" ref="bgndImagePlayer"/>
     <ImagePlayer class="image-container" ref="imagePlayer"/>
     <AudioPlayer class="audio-container" ref="audioPlayer"
       @audioEnded="processAudioEnded"
+      @sfxEnded="processSFXEnded"
       @musicEnded="processMusicEnded"
+      @bgndMusicEnded="processBgndMusicEnded"
     />
     <QuestionView class="questions-container" ref="questionView"/>
     <TimerView class="timer-container" ref="timerView" @timeExpired="processTimeExpired" />
@@ -17,11 +20,13 @@
       @cheatSkip="cheatSkip"
       @cheatBack="cheatBack"
       @cheatEpisode="cheatEpisode"
+      @donate="donate"
     />
   </div>
 </template>
 
 <script>
+import BgPicturePlayer from './BgPicturePlayer.vue'
 import VideoPlayer from './VideoPlayer.vue'
 import BgndImagePlayer from './BgndImagePlayer.vue'
 import ImagePlayer from './ImagePlayer.vue'
@@ -33,6 +38,7 @@ import ControlsView from './ControlsView.vue'
 
 export default {
   components: {
+    BgPicturePlayer,
     VideoPlayer,
     BgndImagePlayer,
     ImagePlayer,
@@ -73,12 +79,20 @@ export default {
       this.$refs.answersView.hideAnswers()
     },
 
-    setTimer (seconds) {
-      this.$refs.timerView.setTimer(seconds)
+    hideAnswers () {
+      this.$refs.answersView.hideAnswers()
+    },
+
+    setTimer (seconds, mark) {
+      this.$refs.timerView.setTimer(seconds, mark)
     },
 
     clearTimer (seconds) {
       this.$refs.timerView.clearTimer()
+    },
+
+    showBgPictures (images) {
+      this.$refs.bgPicturePlayer.showBgPictures(images)
     },
 
     playVideo (name, loop) {
@@ -89,8 +103,8 @@ export default {
       this.$refs.videoPlayer.stopVideo()
     },
 
-    playAudio (name, loop) {
-      this.$refs.audioPlayer.playAudio(name, loop)
+    playAudio (name, loop, text) {
+      this.$refs.audioPlayer.playAudio(name, loop, text)
     },
 
     stopAudio () {
@@ -121,6 +135,18 @@ export default {
       this.$refs.audioPlayer.playMusic(name)
     },
 
+    stopMusic () {
+      this.$refs.audioPlayer.stopMusic()
+    },
+
+    playBgndMusic (name, loop) {
+      this.$refs.audioPlayer.playBgndMusic(name)
+    },
+
+    stopBgndMusic () {
+      this.$refs.audioPlayer.stopBgndMusic()
+    },
+
     playSFX (name, loop) {
       this.$refs.audioPlayer.playSFX(name)
     },
@@ -144,9 +170,19 @@ export default {
       this.$emit('audioEnded', name)
     },
 
+    processSFXEnded (name) {
+      // console.log('sfxEnded', name)
+      this.$emit('sfxEnded', name)
+    },
+
     processMusicEnded (name) {
       // console.log('musicEnded', name)
       this.$emit('musicEnded', name)
+    },
+
+    processBgndMusicEnded (name) {
+      // console.log('bgndMusicEnded', name)
+      this.$emit('bgndMusicEnded', name)
     },
 
     processTimeExpired () {
@@ -184,6 +220,11 @@ export default {
       this.$emit('cheatEpisode')
     },
 
+    donate () {
+      console.log('donate')
+      this.$emit('donate')
+    },
+
     enablePurchasedCheats () {
       this.$refs.controlsView.enablePurchasedCheats()
     }
@@ -201,6 +242,17 @@ export default {
   }
 
   @media screen and (max-aspect-ratio: 13/9) {
+    .bg-picture-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50vh;
+      margin: 0;
+      padding: 0;
+      z-index: -5;
+    }
+
     .video-container {
       position: fixed;
       top: 0;
@@ -232,17 +284,6 @@ export default {
       margin: 0;
       padding: 0;
       z-index: -2;
-    }
-
-    .yandex-money-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50vh;
-      margin: 0;
-      padding: 0;
-      z-index: -1;
     }
 
     .questions-container {
@@ -279,6 +320,17 @@ export default {
   }
 
   @media screen and (min-aspect-ratio: 13/9) {
+    .bg-picture-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50vw;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      z-index: -5;
+    }
+
     .video-container {
       position: fixed;
       top: 0;
@@ -290,7 +342,7 @@ export default {
       z-index: -4;
     }
 
-    .image-container {
+    .bgnd-image-container {
       position: fixed;
       top: 0;
       left: 0;
@@ -301,7 +353,7 @@ export default {
       z-index: -3;
     }
 
-    .bgnd-image-container {
+    .image-container {
       position: fixed;
       top: 0;
       left: 0;
@@ -310,17 +362,6 @@ export default {
       margin: 0;
       padding: 0;
       z-index: -2;
-    }
-
-    .yandex-money-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 50vw;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      z-index: -1;
     }
 
     .questions-container {

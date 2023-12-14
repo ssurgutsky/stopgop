@@ -4,7 +4,12 @@ import CacheController from '@/components/controller/CacheController.js'
 export default {
   // Image sequence is a string of kind
   // 'bg.png|0,0;1;1;0;1&image1.png|100,50;0.5;0.5;0;1&image2.png|100,50;0.5;0.5;0;1
-  showImages (imagesSequence, canvas, ctx) {
+  showImages (imagesSequence, canvas, ctx, isClearCtx) {
+    if (isClearCtx) {
+      console.log('isClearCtx', true)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
+
     return new Promise((resolve, reject) => {
       if (!imagesSequence || imagesSequence === '') {
         resolve()
@@ -53,6 +58,9 @@ export default {
     let asset = CacheController.getAssetByName(CacheController.CATEGORY_IMAGES, name)
     if (asset) {
       return asset
+    }
+    if (name.indexOf('.jpg') <= 0 && name.indexOf('.png') <= 0 && name.indexOf('.gif') <= 0) {
+      name = name + '.jpg'
     }
     return this.getImagePathByName(name)
   },
